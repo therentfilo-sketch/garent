@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GARENT FİLO | Premium Araç Kiralama</title>
+    <meta name="description" content="Premium araç kiralama hizmeti. Lüks, ekonomi ve SUV araç kiralama seçenekleri ile hizmetinizdeyiz.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#f97316",
+                        secondary: "#1e293b",
+                        accent: "#f8fafc"
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    },
+                    backgroundImage: {
+                        'gradient-orange': 'linear-gradient(135deg, #f97316 0%, #c2410c 100%)',
+                        'gradient-white': 'linear-gradient(135deg, #ffffff 0%, #fff7ed 100%)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.active {
+            display: flex;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    
+        :root { --premium-orange:#f97316; --premium-orange-dark:#c2410c; --premium-ink:#111827; }
+        body { background: radial-gradient(circle at top left, rgba(249,115,22,.16), transparent 34rem), radial-gradient(circle at top right, rgba(255,186,95,.20), transparent 30rem), linear-gradient(180deg,#fffaf5 0%,#ffffff 45%,#fff7ed 100%); }
+        .premium-header { background: linear-gradient(135deg, rgba(17,24,39,.92), rgba(194,65,12,.94)), url("data:image/svg+xml,%3Csvg width='160' height='160' viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(255,255,255,.16)' stroke-width='1'%3E%3Cpath d='M0 40h160M0 80h160M0 120h160M40 0v160M80 0v160M120 0v160'/%3E%3C/g%3E%3C/svg%3E"); backdrop-filter: blur(18px); border-bottom:1px solid rgba(255,255,255,.16); }
+        header nav, #vehicle-cards > div, .modal > div, section .bg-white { backdrop-filter: blur(18px); }
+        #home { min-height:580px; display:flex; align-items:center; background: linear-gradient(135deg, rgba(255,255,255,.86), rgba(255,247,237,.76)), radial-gradient(circle at 78% 20%, rgba(249,115,22,.28), transparent 20rem); }
+        #home::before { content:""; position:absolute; inset:28px; border-radius:42px; border:1px solid rgba(249,115,22,.18); background:linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.04)); pointer-events:none; }
+        h2,h3,h4 { letter-spacing:-.035em; }
+        .premium-badge { display:inline-flex; align-items:center; gap:.5rem; margin-bottom:1.25rem; padding:.55rem 1rem; border-radius:999px; background:rgba(249,115,22,.10); color:#9a3412; border:1px solid rgba(249,115,22,.20); font-weight:800; box-shadow:inset 0 1px 0 rgba(255,255,255,.8); }
+        #home h2 { font-size:clamp(2.6rem,6vw,5.6rem); line-height:.96; background:linear-gradient(135deg,#111827,#9a3412 58%,#f97316); -webkit-background-clip:text; color:transparent; }
+        button, #nav-menu a, footer a { transition:transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease; }
+        button:hover { transform:translateY(-2px); }
+        .bg-primary, button.bg-primary, a.bg-primary { background:linear-gradient(135deg,#fb923c 0%,#f97316 45%,#c2410c 100%) !important; box-shadow:0 14px 30px rgba(249,115,22,.28), inset 0 1px 0 rgba(255,255,255,.35); border:1px solid rgba(255,255,255,.28); }
+        .text-primary { color:#f97316 !important; } .border-primary { border-color:rgba(249,115,22,.55) !important; }
+        .card-hover { border:1px solid rgba(249,115,22,.14); background:linear-gradient(180deg, rgba(255,255,255,.90), rgba(255,247,237,.72)); box-shadow:0 24px 65px rgba(17,24,39,.10); }
+        .card-hover:hover { transform:translateY(-9px) scale(1.01); box-shadow:0 32px 90px rgba(249,115,22,.22); }
+        #vehicle-cards img { transition:transform .5s ease; } #vehicle-cards > div:hover img { transform:scale(1.055); }
+        .premium-marquee { overflow:hidden; border-radius:999px; border:1px solid rgba(249,115,22,.22); background:rgba(255,255,255,.56); box-shadow:0 18px 50px rgba(249,115,22,.13), inset 0 1px 0 rgba(255,255,255,.8); backdrop-filter:blur(16px); }
+        .premium-marquee-track { display:flex; align-items:center; gap:1.5rem; width:max-content; padding:.85rem 1.2rem; animation:premiumScroll 22s linear infinite; color:#9a3412; font-weight:800; text-transform:uppercase; letter-spacing:.08em; white-space:nowrap; }
+        @keyframes premiumScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+        .modal { background:rgba(17,24,39,.58); backdrop-filter:blur(12px); padding:1rem; }
+        .modal > div { border:1px solid rgba(255,255,255,.42); background:linear-gradient(180deg, rgba(255,255,255,.94), rgba(255,247,237,.90)); box-shadow:0 30px 100px rgba(17,24,39,.34); }
+        .modal .sticky { background:rgba(255,255,255,.78) !important; backdrop-filter:blur(16px); }
+        input, select { background:rgba(255,255,255,.72) !important; border-color:rgba(249,115,22,.20) !important; box-shadow:inset 0 1px 0 rgba(255,255,255,.85); }
+        input:focus, select:focus { box-shadow:0 0 0 4px rgba(249,115,22,.16) !important; }
+        footer { background:linear-gradient(135deg,#111827,#1f2937 45%,#7c2d12) !important; }
+
+    
+        .premium-header { background:linear-gradient(135deg, rgba(10,13,20,.82), rgba(54,35,20,.76)); backdrop-filter: blur(24px); border-bottom:1px solid rgba(255,255,255,.18); box-shadow:0 18px 60px rgba(15,23,42,.18); }
+        .premium-nav { border:1px solid rgba(255,255,255,.16); border-radius:28px; padding:.65rem .8rem; background:linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.05)); box-shadow: inset 0 1px 0 rgba(255,255,255,.28), 0 24px 70px rgba(0,0,0,.16); }
+        .premium-logo { color:#fff; text-decoration:none; }
+        .premium-logo-mark { width:48px; height:48px; display:grid; place-items:center; border-radius:18px; background:linear-gradient(135deg,#fed7aa,#f97316 55%,#9a3412); box-shadow:0 16px 40px rgba(249,115,22,.36), inset 0 1px 0 rgba(255,255,255,.55); }
+        .premium-logo strong { display:block; font-size:1.35rem; letter-spacing:.02em; line-height:1; }
+        .premium-logo small { display:block; margin-top:.25rem; font-size:.68rem; letter-spacing:.22em; color:rgba(255,237,213,.86); font-weight:800; }
+        .premium-menu-link { display:flex; align-items:center; gap:.45rem; padding:.72rem 1rem; border-radius:999px; color:rgba(255,255,255,.88); background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10); font-weight:700; font-size:.92rem; }
+        .premium-menu-link:hover { color:#fff; transform:translateY(-2px); background:rgba(249,115,22,.22); border-color:rgba(251,146,60,.38); box-shadow:0 14px 34px rgba(249,115,22,.18); }
+        .premium-header-btn { display:inline-flex; align-items:center; gap:.55rem; border-radius:999px; padding:.82rem 1.12rem; font-weight:900; color:#fff; background:linear-gradient(135deg,rgba(251,146,60,.95),rgba(249,115,22,.92),rgba(154,52,18,.95)); border:1px solid rgba(255,255,255,.24); box-shadow:0 18px 40px rgba(249,115,22,.28), inset 0 1px 0 rgba(255,255,255,.42); }
+        .premium-whatsapp { background:linear-gradient(135deg,rgba(37,211,102,.92),rgba(22,163,74,.92)); box-shadow:0 18px 40px rgba(34,197,94,.24), inset 0 1px 0 rgba(255,255,255,.42); }
+        #home { min-height:760px; padding:3rem 0 4rem; background:radial-gradient(circle at 82% 22%, rgba(249,115,22,.34), transparent 22rem), radial-gradient(circle at 18% 22%, rgba(251,146,60,.18), transparent 24rem), linear-gradient(135deg,#fffaf5 0%, #fff 48%, #ffedd5 100%); }
+        #home::after { content:""; position:absolute; inset:auto -10% -20% -10%; height:40%; background:linear-gradient(90deg, transparent, rgba(249,115,22,.16), transparent); filter:blur(30px); pointer-events:none; }
+        .premium-hero-grid { display:grid; grid-template-columns:minmax(0,1.02fr) minmax(360px,.88fr); align-items:center; gap:3rem; position:relative; z-index:1; }
+        .premium-hero-copy { text-align:left; }
+        .premium-hero-copy h2 { font-size:clamp(3rem,6.7vw,6.7rem); line-height:.9; margin:0 0 1.35rem; letter-spacing:-.075em; background:linear-gradient(135deg,#0f172a 0%,#431407 56%,#f97316 100%); -webkit-background-clip:text; color:transparent; }
+        .premium-hero-copy p { max-width:680px; font-size:1.18rem; line-height:1.85; color:#64748b; margin-bottom:2rem; }
+        .premium-hero-actions { display:flex; flex-wrap:wrap; gap:1rem; }
+        .premium-glass-btn { display:inline-flex; align-items:center; justify-content:center; gap:.7rem; min-height:58px; padding:0 1.45rem; border-radius:999px; font-weight:900; letter-spacing:-.01em; border:1px solid rgba(255,255,255,.35); backdrop-filter:blur(18px); box-shadow:0 24px 60px rgba(249,115,22,.20), inset 0 1px 0 rgba(255,255,255,.55); }
+        .premium-main-btn { color:#fff; background:linear-gradient(135deg,#fdba74,#f97316 52%,#9a3412); }
+        .premium-outline-btn { color:#9a3412; background:linear-gradient(135deg,rgba(255,255,255,.86),rgba(255,237,213,.54)); border-color:rgba(249,115,22,.28); }
+        .premium-hero-stats { display:flex; flex-wrap:wrap; gap:1rem; margin-top:1.7rem; }
+        .premium-hero-stats span { min-width:136px; padding:1rem 1.1rem; border-radius:24px; background:rgba(255,255,255,.62); border:1px solid rgba(249,115,22,.18); box-shadow:0 18px 50px rgba(15,23,42,.08), inset 0 1px 0 rgba(255,255,255,.75); backdrop-filter:blur(16px); }
+        .premium-hero-stats strong { display:block; color:#9a3412; font-size:1.45rem; line-height:1; }
+        .premium-hero-stats small { color:#64748b; font-weight:800; }
+        .premium-hero-visual { position:relative; min-height:440px; display:grid; place-items:center; }
+        .hero-orbit { position:absolute; width:420px; height:420px; border-radius:999px; background:conic-gradient(from 180deg, rgba(249,115,22,.18), rgba(255,255,255,.2), rgba(154,52,18,.16), rgba(249,115,22,.18)); filter:blur(.2px); box-shadow: inset 0 0 0 1px rgba(249,115,22,.20); animation:spinSlow 16s linear infinite; }
+        @keyframes spinSlow { to { transform:rotate(360deg); } }
+        .hero-car-card { position:relative; width:min(520px,100%); border-radius:42px; padding:1.2rem; overflow:hidden; background:linear-gradient(145deg,rgba(255,255,255,.78),rgba(255,237,213,.56)); border:1px solid rgba(255,255,255,.6); box-shadow:0 40px 110px rgba(124,45,18,.22), inset 0 1px 0 rgba(255,255,255,.9); backdrop-filter:blur(22px); }
+        .hero-car-card:before { content:""; position:absolute; inset:0; background:linear-gradient(120deg, transparent 0 30%, rgba(255,255,255,.42) 40%, transparent 52%); transform:translateX(-80%); animation:glassSweep 5s ease-in-out infinite; }
+        @keyframes glassSweep { 50%,100%{ transform:translateX(120%);} }
+        .hero-card-label { position:absolute; top:1.1rem; left:1.1rem; z-index:2; padding:.55rem .8rem; border-radius:999px; color:#7c2d12; font-weight:900; font-size:.72rem; letter-spacing:.14em; background:rgba(255,255,255,.72); border:1px solid rgba(249,115,22,.2); }
+        .hero-car-card img { position:relative; z-index:1; width:100%; height:300px; object-fit:contain; transform:scale(1.08); filter:drop-shadow(0 28px 36px rgba(15,23,42,.28)); }
+        .hero-card-bottom { display:flex; justify-content:space-between; align-items:center; position:relative; z-index:2; padding:.9rem 1rem; border-radius:24px; background:rgba(15,23,42,.88); color:#fff; box-shadow:inset 0 1px 0 rgba(255,255,255,.18); }
+        .hero-card-bottom b { color:#fdba74; }
+        @media (max-width: 980px) { .premium-hero-grid{grid-template-columns:1fr;text-align:center}.premium-hero-copy{text-align:center}.premium-hero-copy p{margin-left:auto;margin-right:auto}.premium-hero-actions,.premium-hero-stats{justify-content:center}.premium-hero-visual{min-height:360px}.hero-orbit{width:320px;height:320px}.hero-car-card img{height:230px} }
+        @media (max-width: 640px) { .premium-header-btn span{display:none}.premium-menu-link{padding:.62rem .8rem;font-size:.82rem}.premium-hero-copy h2{font-size:3.1rem}.premium-hero-visual{min-height:300px}.hero-car-card{border-radius:30px}.hero-car-card img{height:190px} }
+
+    </style>
+    <script src="config.js"></script>
+</head>
+<body class="min-h-screen bg-gradient-white font-poppins">
+    <!-- Header & Navigation -->
+    <header class="premium-header text-white sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <nav class="premium-nav flex flex-col lg:flex-row justify-between items-center gap-4">
+                <a href="#home" class="premium-logo flex items-center gap-3">
+                    <span class="premium-logo-mark"><i class="fas fa-car-side"></i></span>
+                    <span>
+                        <strong>GARENT FİLO</strong>
+                        <small>PREMIUM RENT A CAR</small>
+                    </span>
+                </a>
+                <ul id="nav-menu" class="premium-menu flex flex-wrap justify-center gap-2 md:gap-3"></ul>
+                <div class="flex items-center gap-3">
+                    <button onclick="window.open(window.SITE_CONFIG?.whatsappUrl?.('Merhaba, GARENT FİLO hakkında bilgi almak istiyorum.') || '#','_blank')" class="premium-header-btn premium-whatsapp">
+                        <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
+                    </button>
+                    <button onclick="window.location.href='tel:'+(window.SITE_CONFIG?.callNumber||'')" class="premium-header-btn">
+                        <i class="fas fa-phone-alt"></i><span>Hemen Ara</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative overflow-hidden">
+        <div class="container mx-auto px-4 py-12 md:py-20">
+            <div class="premium-hero-grid max-w-7xl mx-auto">
+                <div class="premium-hero-copy">
+                    <div class="premium-badge"><i class="fas fa-crown"></i> Türkiye'de Bir'İnci</div>
+                    <h2>GARENT FİLO ile kiralama değil, ayrıcalıklı sürüş başlar.</h2>
+                    <p>Bakımlı seçkin araçlar, hızlı teslimat, şeffaf fiyatlandırma ve 7/24 destekle günlük, haftalık ve aylık premium araç kiralama çözümleri.</p>
+                    <div class="premium-hero-actions">
+                        <button onclick="document.getElementById('reservation-modal').classList.add('active')" class="premium-glass-btn premium-main-btn">
+                            <i class="fas fa-calendar-check"></i><span>Premium Rezervasyon</span>
+                        </button>
+                        <button onclick="window.open(window.SITE_CONFIG?.whatsappUrl?.('Merhaba, GARENT FİLO araç kiralama hizmetleri hakkında bilgi almak istiyorum.') || `https://wa.me/${window.SITE_CONFIG?.whatsappNumber||''}`,'_blank')" class="premium-glass-btn premium-outline-btn">
+                            <i class="fab fa-whatsapp"></i><span>WhatsApp Danışmanı</span>
+                        </button>
+                    </div>
+                    <div class="premium-hero-stats">
+                        <span><strong>50+</strong><small>Premium Araç</small></span>
+                        <span><strong>7/24</strong><small>Canlı Destek</small></span>
+                        <span><strong>Hızlı</strong><small>Teslimat</small></span>
+                    </div>
+                </div>
+                <div class="premium-hero-visual" aria-hidden="true">
+                    <div class="hero-orbit"></div>
+                    <div class="hero-car-card">
+                        <span class="hero-card-label">GARENT SIGNATURE</span>
+                        <img src="assets/img/cars/bmw-520i.webp" alt="GARENT FİLO premium araç" loading="eager">
+                        <div class="hero-card-bottom"><span>Executive Filo</span><b>Premium Ready</b></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mx-auto px-4">
+                <div class="premium-marquee mt-10" aria-label="GARENT FİLO avantajları">
+                    <div class="premium-marquee-track">
+                        <span>Premium Filo</span><i class="fas fa-diamond"></i>
+                        <span>7/24 Destek</span><i class="fas fa-diamond"></i>
+                        <span>Hızlı Teslimat</span><i class="fas fa-diamond"></i>
+                        <span>Şeffaf Fiyat</span><i class="fas fa-diamond"></i>
+                        <span>Kurumsal Kalite</span><i class="fas fa-diamond"></i>
+                        <span>Premium Filo</span><i class="fas fa-diamond"></i>
+                        <span>7/24 Destek</span><i class="fas fa-diamond"></i>
+                        <span>Hızlı Teslimat</span><i class="fas fa-diamond"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute top-0 right-0 w-64 h-64 bg-orange-100 rounded-full -translate-y-32 translate-x-32 opacity-50"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-orange-50 rounded-full translate-y-48 -translate-x-48 opacity-50"></div>
+    </section>
+
+    <!-- Vehicle Filter -->
+    <section id="fleet" class="container mx-auto px-4 py-8">
+        <div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
+            <h3 class="text-xl font-semibold text-secondary mb-4">Filonu Seç</h3>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <select class="border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                    <option value="">Araç Tipi Seçin</option>
+                    <option value="sedan">Sedan</option>
+                    <option value="suv">SUV</option>
+                    <option value="hatchback">Hatchback</option>
+                    <option value="station">Station Wagon</option>
+                </select>
+                <select class="border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                    <option value="">Vites Tipi</option>
+                    <option value="manuel">Manuel</option>
+                    <option value="otomatik">Otomatik</option>
+                </select>
+                <select class="border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                    <option value="">Yakıt Tipi</option>
+                    <option value="benzin">Benzin</option>
+                    <option value="dizel">Dizel</option>
+                    <option value="elektrik">Elektrik</option>
+                    <option value="hybrid">Hybrid</option>
+                </select>
+                <button class="bg-primary text-white rounded-lg px-6 py-3 font-semibold hover:bg-orange-700 transition">
+                    <i class="fas fa-filter mr-2"></i>Filtrele
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vehicle Cards Section -->
+    <main class="container mx-auto px-4 py-8">
+        <h2 class="text-3xl font-bold text-secondary text-center mb-12">GARENT FİLO Araç Koleksiyonu</h2>
+        <div id="vehicle-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </main>
+
+    <section id="services"></section>
+    <!-- Features Section -->
+    <section class="bg-gray-50 py-16 mt-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-secondary text-center mb-12">Neden GARENT FİLO?</h2>
+            <div id="features-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+        </div>
+    </section>
+
+    <section id="pricing"></section>
+    <!-- Footer -->
+    <footer id="contact" class="bg-secondary text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-car text-2xl text-primary"></i>
+                        <h3 class="text-2xl font-bold">GARENT FİLO</h3>
+                    </div>
+                    <p class="text-gray-300">GARENT FİLO; güçlü filosu, premium hizmet anlayışı ve hızlı iletişim desteğiyle araç kiralama deneyimini üst seviyeye taşır.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Hızlı Bağlantılar</h4>
+                    <ul id="footer-links-1" class="space-y-2"></ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Araç Tipleri</h4>
+                    <ul id="footer-links-2" class="space-y-2"></ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">İletişim</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt text-primary mr-3"></i>
+                            <span id="contact-phone-display"></span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-primary mr-3"></i>
+                            <span id="contact-email-display">info@garentfilo.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-primary mr-3"></i>
+                            <span id="contact-city-display">İstanbul, Türkiye</span>
+                        </li>
+                    </ul>
+                    <div class="flex space-x-4 mt-6">
+                        <a id="footer-whatsapp-link" href="#" class="bg-primary w-10 h-10 rounded-full flex items-center justify-center hover:bg-orange-700">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-600">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-600">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2024 GARENT FİLO Araç Kiralama. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Reservation Modal -->
+    <div id="reservation-modal" class="modal">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white border-b px-6 py-4 flex justify-between items-center">
+                <h3 class="text-2xl font-bold text-secondary">Rezervasyon Oluştur</h3>
+                <button id="close-modal" class="text-gray-500 hover:text-gray-700 text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <form id="reservation-form">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 mb-2">Araç</label>
+                            <input id="selected-vehicle" name="vehicle" type="text" readonly class="w-full border border-gray-300 rounded-2xl px-4 py-3 bg-gray-100">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Kiralama Tipi *</label>
+                            <select class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" required>
+                                <option value="">Tip seçin</option>
+                                <option value="personal">Şahıs</option>
+                                <option value="company">Şirket</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Alış Tarihi *</label>
+                            <input type="date" class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Dönüş Tarihi *</label>
+                            <input type="date" class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-gray-700 mb-2">Teslim Yeri *</label>
+                            <input type="text" class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Teslim almak istediğiniz adres" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Adınız</label>
+                            <input type="text" class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Soyadınız</label>
+                            <input type="text" class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Telefon *</label>
+                            <input type="tel" class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">E-posta Adresi</label>
+                            <input type="email" class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                    </div>
+                    <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-end">
+                        <button type="button" id="cancel-reservation" class="px-8 py-3 border border-gray-300 text-gray-700 rounded-2xl font-semibold hover:bg-gray-50 transition">
+                            İptal
+                        </button>
+                        <button type="submit" class="bg-primary text-white px-8 py-3 rounded-2xl font-semibold hover:bg-orange-700 transition flex items-center justify-center">
+                            <i class="fab fa-whatsapp mr-2"></i>WhatsApp'tan Gönder
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vehicle Detail Modal -->
+    <div id="vehicle-detail-modal" class="modal">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-4xl mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white border-b px-6 py-4 flex justify-between items-center">
+                <h3 id="detail-title" class="text-2xl font-bold text-secondary">Araç Detayları</h3>
+                <button id="close-detail-modal" class="text-gray-500 hover:text-gray-700 text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <div id="detail-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data Layer
+        const navigationItems = [
+            { "label": "Ana Sayfa", "href": "#home", "icon": "fas fa-home" },
+            { "label": "Filo", "href": "#fleet", "icon": "fas fa-car" },
+            { "label": "Hizmetler", "href": "#services", "icon": "fas fa-concierge-bell" },
+            { "label": "Fiyatlar", "href": "#pricing", "icon": "fas fa-tag" },
+            { "label": "İletişim", "href": "#contact", "icon": "fas fa-phone-alt" }
+        ];
+
+        const vehicles = [
+    {
+        "id": 1,
+        "name": "Citroen C-Elysee",
+        "category": "Ekonomik",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Dizel",
+        "seats": 5,
+        "price": "800",
+        "image": "assets/img/cars/citroen-celysee.webp",
+        "description": "Citroen C-Elysee kiralık araç. Depozito: 4000 TL.",
+        "features": [
+            "Yokuş kalkış desteği",
+            "Geniş bagaj"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Renault Clio",
+        "category": "Ekonomik",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1050",
+        "image": "assets/img/cars/renault-clio.webp",
+        "description": "Renault Clio kiralık araç. Depozito: 4200 TL.",
+        "features": [
+            "CarPlay",
+            "Şerit takip"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Hyundai i20",
+        "category": "Ekonomik",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1050",
+        "image": "assets/img/cars/hyundai-i20.webp",
+        "description": "Hyundai i20 kiralık araç. Depozito: 4200 TL.",
+        "features": [
+            "Geri görüş kamerası",
+            "Bluetooth"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Toyota Yaris",
+        "category": "Ekonomik",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Hibrit",
+        "seats": 5,
+        "price": "1050",
+        "image": "assets/img/cars/toyota-yaris.webp",
+        "description": "Toyota Yaris kiralık araç. Depozito: 4300 TL.",
+        "features": [
+            "Adaptif hız sabitleyici",
+            "Kör nokta uyarısı"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Ford Fiesta",
+        "category": "Ekonomik",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1050",
+        "image": "assets/img/cars/ford-fiesta.webp",
+        "description": "Ford Fiesta kiralık araç. Depozito: 4300 TL.",
+        "features": [
+            "Park sensörü",
+            "Dokunmatik ekran"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Skoda Fabia",
+        "category": "Ekonomik",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1150",
+        "image": "assets/img/cars/skoda-fabia.webp",
+        "description": "Skoda Fabia kiralık araç. Depozito: 4400 TL.",
+        "features": [
+            "LED far",
+            "Hız sabitleyici"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "VW Polo",
+        "category": "Ekonomik",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1200",
+        "image": "assets/img/cars/vw-polo.webp",
+        "description": "VW Polo kiralık araç. Depozito: 4400 TL.",
+        "features": [
+            "Dijital klima",
+            "Apple CarPlay"
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Renault Taliant",
+        "category": "Ekonomik",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1150",
+        "image": "assets/img/cars/renault-taliant.webp",
+        "description": "Renault Taliant kiralık araç. Depozito: 4500 TL.",
+        "features": [
+            "Yakıt ekonomisi",
+            "Geniş iç hacim"
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Fiat Egea",
+        "category": "Ekonomik",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Dizel",
+        "seats": 5,
+        "price": "1150",
+        "image": "assets/img/cars/Fiat-egea.webp",
+        "description": "Fiat Egea kiralık araç. Depozito: 4500 TL.",
+        "features": [
+            "Dokunmatik ekran",
+            "USB bağlantı"
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Honda City",
+        "category": "Ekonomik",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1150",
+        "image": "assets/img/cars/honda-city.webp",
+        "description": "Honda City kiralık araç. Depozito: 4600 TL.",
+        "features": [
+            "Şerit destek",
+            "Ekonomik sürüş modu"
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Hyundai Accent",
+        "category": "Ekonomik",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1200",
+        "image": "assets/img/cars/hyundai-accent.webp",
+        "description": "Hyundai Accent kiralık araç. Depozito: 4600 TL.",
+        "features": [
+            "ABS",
+            "Park sensörü"
+        ]
+    },
+    {
+        "id": 12,
+        "name": "Fiat 500L",
+        "category": "Ortasegment",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1100",
+        "image": "assets/img/cars/fiat-500l.webp",
+        "description": "Fiat 500L kiralık araç. Depozito: 4700 TL.",
+        "features": [
+            "Panoramik cam tavan",
+            "Yüksek oturma pozisyonu"
+        ]
+    },
+    {
+        "id": 13,
+        "name": "Ford Focus",
+        "category": "Ortasegment",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1300",
+        "image": "assets/img/cars/ford-focus.webp",
+        "description": "Ford Focus kiralık araç. Depozito: 4700 TL.",
+        "features": [
+            "Şerit takip",
+            "Geri görüş kamerası"
+        ]
+    },
+    {
+        "id": 14,
+        "name": "Renault Megane Hatchback",
+        "category": "Ortasegment",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1200",
+        "image": "assets/img/cars/renault-megane-hactback.webp",
+        "description": "Renault Megane Hatchback kiralık araç. Depozito: 4800 TL.",
+        "features": [
+            "Dijital gösterge",
+            "Ambiyans aydınlatma"
+        ]
+    },
+    {
+        "id": 15,
+        "name": "VW Golf",
+        "category": "Ortasegment",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1550",
+        "image": "assets/img/cars/vw-Golf.webp",
+        "description": "VW Golf kiralık araç. Depozito: 4800 TL.",
+        "features": [
+            "Adaptive Cruise Control",
+            "Dijital kokpit"
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Honda Civic",
+        "category": "Ortasegment",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1500",
+        "image": "assets/img/cars/honda-civic.webp",
+        "description": "Honda Civic kiralık araç. Depozito: 4900 TL.",
+        "features": [
+            "Sunroof",
+            "Kablosuz şarj"
+        ]
+    },
+    {
+        "id": 17,
+        "name": "Toyota Corolla Hybrid",
+        "category": "Ortasegment",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Hibrit",
+        "seats": 5,
+        "price": "1500",
+        "image": "assets/img/cars/toyota-corolla-hybrid.webp",
+        "description": "Toyota Corolla Hybrid kiralık araç. Depozito: 4900 TL.",
+        "features": [
+            "Hibrit sürüş",
+            "Adaptif cruise"
+        ]
+    },
+    {
+        "id": 18,
+        "name": "Renault Megane Sedan",
+        "category": "Ortasegment",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1200",
+        "image": "assets/img/cars/Renault-megane.webp",
+        "description": "Renault Megane Sedan kiralık araç. Depozito: 5000 TL.",
+        "features": [
+            "Geniş bagaj",
+            "Dijital klima"
+        ]
+    },
+    {
+        "id": 19,
+        "name": "Hyundai Elantra",
+        "category": "Ortasegment",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1300",
+        "image": "assets/img/cars/hyundai-elantra.webp",
+        "description": "Hyundai Elantra kiralık araç. Depozito: 5000 TL.",
+        "features": [
+            "Anahtarsız giriş",
+            "Kör nokta uyarısı"
+        ]
+    },
+    {
+        "id": 20,
+        "name": "BMW 320d",
+        "category": "Ortasegment",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Dizel",
+        "seats": 5,
+        "price": "1950",
+        "image": "assets/img/cars/bmw-320d.webp",
+        "description": "BMW 320d kiralık araç. Depozito: 5100 TL.",
+        "features": [
+            "Deri koltuk",
+            "Navigasyon"
+        ]
+    },
+    {
+        "id": 21,
+        "name": "Audi A3",
+        "category": "Ortasegment",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1800",
+        "image": "assets/img/cars/audi-a3.webp",
+        "description": "Audi A3 kiralık araç. Depozito: 5100 TL.",
+        "features": [
+            "Virtual cockpit",
+            "LED far"
+        ]
+    },
+    {
+        "id": 22,
+        "name": "Ford Mondeo",
+        "category": "Ortasegment",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Dizel",
+        "seats": 5,
+        "price": "1500",
+        "image": "assets/img/cars/ford-mondeo.webp",
+        "description": "Ford Mondeo kiralık araç. Depozito: 5200 TL.",
+        "features": [
+            "Adaptif far",
+            "Çift bölgeli klima"
+        ]
+    },
+    {
+        "id": 23,
+        "name": "VW Passat",
+        "category": "Ortasegment",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Dizel",
+        "seats": 5,
+        "price": "1700",
+        "image": "assets/img/cars/Vw-Passat.webp",
+        "description": "VW Passat kiralık araç. Depozito: 5200 TL.",
+        "features": [
+            "Masaj koltuğu",
+            "Kablosuz CarPlay"
+        ]
+    },
+    {
+        "id": 24,
+        "name": "Skoda Superb",
+        "category": "Ortasegment",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1700",
+        "image": "assets/img/cars/skoda-superb.webp",
+        "description": "Skoda Superb kiralık araç. Depozito: 5300 TL.",
+        "features": [
+            "Geniş diz mesafesi",
+            "Elektrikli bagaj"
+        ]
+    },
+    {
+        "id": 25,
+        "name": "Mercedes CLA 200",
+        "category": "Luks",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "2700",
+        "image": "assets/img/cars/mercedes-cla200.webp",
+        "description": "Mercedes CLA 200 kiralık araç. Depozito: 5400 TL.",
+        "features": [
+            "MBUX ekran",
+            "Ambiyans aydınlatma"
+        ]
+    },
+    {
+        "id": 26,
+        "name": "Audi A6",
+        "category": "Luks",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "3000",
+        "image": "assets/img/cars/audi-a6.webp",
+        "description": "Audi A6 kiralık araç. Depozito: 5500 TL.",
+        "features": [
+            "4 bölgeli klima",
+            "Navigasyon"
+        ]
+    },
+    {
+        "id": 27,
+        "name": "BMW 420i Coupe",
+        "category": "Luks",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "2800",
+        "image": "assets/img/cars/bmw-420i.webp",
+        "description": "BMW 420i Coupe kiralık araç. Depozito: 5600 TL.",
+        "features": [
+            "Harman Kardon",
+            "Elektrikli koltuk"
+        ]
+    },
+    {
+        "id": 28,
+        "name": "BMW 520i",
+        "category": "Luks",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "2800",
+        "image": "assets/img/cars/bmw-520i.webp",
+        "description": "BMW 520i kiralık araç. Depozito: 5700 TL.",
+        "features": [
+            "Konfor koltuk",
+            "Şerit ortalama"
+        ]
+    },
+    {
+        "id": 29,
+        "name": "Mercedes E200",
+        "category": "Luks",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "3200",
+        "image": "assets/img/cars/mercedes-e200.webp",
+        "description": "Mercedes E200 kiralık araç. Depozito: 5800 TL.",
+        "features": [
+            "Burmester ses sistemi",
+            "360 kamera"
+        ]
+    },
+    {
+        "id": 30,
+        "name": "BYD Seal",
+        "category": "Luks",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Elektrik",
+        "seats": 5,
+        "price": "1800",
+        "image": "assets/img/cars/byd-seal.webp",
+        "description": "BYD Seal kiralık araç. Depozito: 5900 TL.",
+        "features": [
+            "Elektrikli performans",
+            "Isıtmalı koltuk"
+        ]
+    },
+    {
+        "id": 31,
+        "name": "Tesla Model",
+        "category": "Luks",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Elektrik",
+        "seats": 5,
+        "price": "2300",
+        "image": "assets/img/cars/Tesla.webp",
+        "description": "Tesla Model kiralık araç. Depozito: 6000 TL.",
+        "features": [
+            "Otopilot",
+            "Cam tavan"
+        ]
+    },
+    {
+        "id": 32,
+        "name": "Porsche Taycan",
+        "category": "Luks",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Elektrik",
+        "seats": 5,
+        "price": "6700",
+        "image": "assets/img/cars/porche-taycan.webp",
+        "description": "Porsche Taycan kiralık araç. Depozito: 7000 TL.",
+        "features": [
+            "Launch control",
+            "Premium ses sistemi"
+        ]
+    },
+    {
+        "id": 33,
+        "name": "Ford Puma",
+        "category": "Ortasegment",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1300",
+        "image": "assets/img/cars/ford-puma.webp",
+        "description": "Ford Puma kiralık araç. Depozito: 5400 TL.",
+        "features": [
+            "Büyük bagaj",
+            "Şerit takip"
+        ]
+    },
+    {
+        "id": 34,
+        "name": "Audi Q2",
+        "category": "Ortasegment",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1800",
+        "image": "assets/img/cars/audi-q2.webp",
+        "description": "Audi Q2 kiralık araç. Depozito: 5500 TL.",
+        "features": [
+            "Yüksek sürüş pozisyonu",
+            "LED far"
+        ]
+    },
+    {
+        "id": 35,
+        "name": "Chery Omoda 5",
+        "category": "Ortasegment",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1550",
+        "image": "assets/img/cars/chery-omoda5.webp",
+        "description": "Chery Omoda 5 kiralık araç. Depozito: 5500 TL.",
+        "features": [
+            "360 kamera",
+            "Kablosuz şarj"
+        ]
+    },
+    {
+        "id": 36,
+        "name": "Hyundai Tucson",
+        "category": "Ortasegment",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Dizel",
+        "seats": 5,
+        "price": "1600",
+        "image": "assets/img/cars/hyundai-tucson.webp",
+        "description": "Hyundai Tucson kiralık araç. Depozito: 5600 TL.",
+        "features": [
+            "Isıtmalı koltuk",
+            "Adaptif cruise"
+        ]
+    },
+    {
+        "id": 37,
+        "name": "Honda CR-V",
+        "category": "Ortasegment",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1700",
+        "image": "assets/img/cars/honda-crv.webp",
+        "description": "Honda CR-V kiralık araç. Depozito: 5700 TL.",
+        "features": [
+            "Elektrikli bagaj",
+            "Sunroof"
+        ]
+    },
+    {
+        "id": 38,
+        "name": "Jaecoo J7",
+        "category": "Luks",
+        "year": 2024,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1500",
+        "image": "assets/img/cars/jaecoo-j7.webp",
+        "description": "Jaecoo J7 kiralık araç. Depozito: 5800 TL.",
+        "features": [
+            "Off-road modu",
+            "Panoramik tavan"
+        ]
+    },
+    {
+        "id": 39,
+        "name": "Chery Tiggo Pro 8",
+        "category": "Luks",
+        "year": 2025,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1600",
+        "image": "assets/img/cars/Chery-tiggopro8.webp",
+        "description": "Chery Tiggo Pro 8 kiralık araç. Depozito: 5900 TL.",
+        "features": [
+            "7 koltuk",
+            "360 kamera"
+        ]
+    },
+    {
+        "id": 40,
+        "name": "Audi Q5",
+        "category": "Luks",
+        "year": 2025,
+        "transmission": "Otomatik",
+        "fuel": "Dizel",
+        "seats": 5,
+        "price": "2500",
+        "image": "assets/img/cars/audi-q5.webp",
+        "description": "Audi Q5 kiralık araç. Depozito: 6100 TL.",
+        "features": [
+            "Quattro",
+            "Sanal kokpit"
+        ]
+    },
+    {
+        "id": 41,
+        "name": "BMW X5",
+        "category": "Luks",
+        "year": 2025,
+        "transmission": "Otomatik",
+        "fuel": "Dizel",
+        "seats": 5,
+        "price": "2500",
+        "image": "assets/img/cars/bmw-x5.webp",
+        "description": "BMW X5 kiralık araç. Depozito: 6300 TL.",
+        "features": [
+            "Panoramik cam tavan",
+            "Hafızalı koltuk"
+        ]
+    },
+    {
+        "id": 42,
+        "name": "Range Rover Velar",
+        "category": "Luks",
+        "year": 2025,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "4700",
+        "image": "assets/img/cars/range-rover-velar.webp",
+        "description": "Range Rover Velar kiralık araç. Depozito: 6500 TL.",
+        "features": [
+            "Meridian ses sistemi",
+            "Elektrikli bagaj"
+        ]
+    },
+    {
+        "id": 43,
+        "name": "Range Rover Sport",
+        "category": "Luks",
+        "year": 2025,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "4700",
+        "image": "assets/img/cars/range-rover-sport.webp",
+        "description": "Range Rover Sport kiralık araç. Depozito: 6800 TL.",
+        "features": [
+            "Hava süspansiyon",
+            "Off-road paketi"
+        ]
+    },
+    {
+        "id": 44,
+        "name": "Megane E-Tech",
+        "category": "Luks",
+        "year": 2025,
+        "transmission": "Otomatik",
+        "fuel": "Elektrik",
+        "seats": 5,
+        "price": "1500",
+        "image": "assets/img/cars/megane-tech.webp",
+        "description": "Megane E-Tech kiralık araç. Depozito: 6000 TL.",
+        "features": [
+            "Tam elektrikli",
+            "Dijital kokpit"
+        ]
+    },
+    {
+        "id": 45,
+        "name": "Ford Courier",
+        "category": "Ekonomik",
+        "year": 2025,
+        "transmission": "Otomatik",
+        "fuel": "Dizel",
+        "seats": 5,
+        "price": "1200",
+        "image": "assets/img/cars/ford-courrier.webp",
+        "description": "Ford Courier kiralık araç. Depozito: 4700 TL.",
+        "features": [
+            "Kayar kapı",
+            "Geniş yükleme alanı"
+        ]
+    },
+    {
+        "id": 46,
+        "name": "Fiat Doblo",
+        "category": "Ekonomik",
+        "year": 2025,
+        "transmission": "Otomatik",
+        "fuel": "Dizel",
+        "seats": 5,
+        "price": "1200",
+        "image": "assets/img/cars/fiat-doblo.webp",
+        "description": "Fiat Doblo kiralık araç. Depozito: 4800 TL.",
+        "features": [
+            "Çift sürgülü kapı",
+            "Park sensörü"
+        ]
+    },
+    {
+        "id": 47,
+        "name": "Renault Express",
+        "category": "Ekonomik",
+        "year": 2025,
+        "transmission": "Otomatik",
+        "fuel": "Dizel",
+        "seats": 5,
+        "price": "1150",
+        "image": "assets/img/cars/renault-express.webp",
+        "description": "Renault Express kiralık araç. Depozito: 4800 TL.",
+        "features": [
+            "Yük sabitleme kancası",
+            "Bluetooth"
+        ]
+    },
+    {
+        "id": 48,
+        "name": "VW Caddy",
+        "category": "Ortasegment",
+        "year": 2025,
+        "transmission": "Otomatik",
+        "fuel": "Dizel",
+        "seats": 5,
+        "price": "1550",
+        "image": "assets/img/cars/vw-caddy.webp",
+        "description": "VW Caddy kiralık araç. Depozito: 5000 TL.",
+        "features": [
+            "Arka kamera",
+            "Uzun aks aralığı"
+        ]
+    },
+    {
+        "id": 49,
+        "name": "VW Passat Variant",
+        "category": "Ortasegment",
+        "year": 2025,
+        "transmission": "Otomatik",
+        "fuel": "Dizel",
+        "seats": 5,
+        "price": "1800",
+        "image": "assets/img/cars/vw-Passat-Stationwagon.webp",
+        "description": "VW Passat Variant kiralık araç. Depozito: 5400 TL.",
+        "features": [
+            "Dev bagaj hacmi",
+            "Adaptif cruise"
+        ]
+    },
+    {
+        "id": 50,
+        "name": "Ford Custom",
+        "category": "Ortasegment",
+        "year": 2025,
+        "transmission": "Otomatik",
+        "fuel": "Dizel",
+        "seats": 5,
+        "price": "1700",
+        "image": "assets/img/cars/ford-custom.webp",
+        "description": "Ford Custom kiralık araç. Depozito: 5600 TL.",
+        "features": [
+            "8+1 oturma",
+            "Çift klima"
+        ]
+    },
+    {
+        "id": 51,
+        "name": "Mercedes Vito",
+        "category": "Luks",
+        "year": 2025,
+        "transmission": "Otomatik",
+        "fuel": "Dizel",
+        "seats": 5,
+        "price": "2500",
+        "image": "assets/img/cars/vito-cclass.webp",
+        "description": "Mercedes Vito kiralık araç. Depozito: 6000 TL.",
+        "features": [
+            "VIP dönüşüm uygunluğu",
+            "Arka klima"
+        ]
+    },
+    {
+        "id": 52,
+        "name": "VW Caravelle",
+        "category": "Luks",
+        "year": 2025,
+        "transmission": "Otomatik",
+        "fuel": "Dizel",
+        "seats": 5,
+        "price": "2300",
+        "image": "assets/img/cars/vw-caravella.webp",
+        "description": "VW Caravelle kiralık araç. Depozito: 6200 TL.",
+        "features": [
+            "8+1 konfor paket",
+            "Sunroof"
+        ]
+    },
+    {
+        "id": 53,
+        "name": "VW T-Roc",
+        "category": "Ortasegment",
+        "year": 2025,
+        "transmission": "Otomatik",
+        "fuel": "Benzin",
+        "seats": 5,
+        "price": "1500",
+        "image": "assets/img/cars/vw-trock.webp",
+        "description": "VW T-Roc kiralık araç. Depozito: 5600 TL.",
+        "features": [
+            "Dijital kokpit",
+            "Apple CarPlay"
+        ]
+    }
+];
+
+        const features = [
+            {
+                "title": "Premium Teslimat",
+                "description": "Seçtiğiniz aracı temiz, bakımlı ve hazır şekilde hızlı teslim ediyoruz.",
+                "icon": "fas fa-gem"
+            },
+            {
+                "title": "Güvenli Sürüş",
+                "description": "Bakımlı filo, sigorta desteği ve şeffaf kiralama süreciyle güven verir.",
+                "icon": "fas fa-shield-alt"
+            },
+            {
+                "title": "7/24 İletişim",
+                "description": "Rezervasyon, teslimat ve destek süreçlerinde her an yanınızdayız.",
+                "icon": "fas fa-headset"
+            }
+        ];
+
+        const footerLinks1 = [
+            { "label": "Hakkımızda", "href": "#about" },
+            { "label": "Kiralama Koşulları", "href": "#terms" },
+            { "label": "Gizlilik Politikası", "href": "#privacy" },
+            { "label": "SSS", "href": "#faq" }
+        ];
+
+        const footerLinks2 = [
+            { "label": "Lüks Araçlar", "href": "#luxury" },
+            { "label": "SUV Araçlar", "href": "#suv" },
+            { "label": "Ekonomik Araçlar", "href": "#economy" },
+            { "label": "Ticari Araçlar", "href": "#commercial" }
+        ];
+
+        // Reusable Render Functions
+        function renderNavigation(items) {
+            return items.map(item => 
+                `<li>
+                    <a href="${item.href}" class="premium-menu-link">
+                        <i class="${item.icon}"></i>
+                        <span>${item.label}</span>
+                    </a>
+                </li>`
+            ).join("");
+        }
+
+        function renderVehicleCards(vehicles) {
+            return vehicles.map(vehicle => `
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden card-hover">
+                    <div class="relative">
+                        <img src="${vehicle.image}" alt="${vehicle.name}" class="w-full h-56 object-cover" loading="lazy">
+                        <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            ${vehicle.year} Model
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-secondary">${vehicle.name}</h3>
+                                <p class="text-gray-600">${vehicle.category}</p>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-primary">${vehicle.price} TL<span class="text-sm text-gray-500">/gün</span></div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-3 mb-6">
+                            <div class="flex items-center text-gray-600">
+                                <i class="fas fa-cog mr-2 text-primary"></i>
+                                <span>${vehicle.transmission}</span>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <i class="fas fa-gas-pump mr-2 text-primary"></i>
+                                <span>${vehicle.fuel}</span>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <i class="fas fa-user-friends mr-2 text-primary"></i>
+                                <span>${vehicle.seats} Kişi</span>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <i class="fas fa-car mr-2 text-primary"></i>
+                                <span>${vehicle.category}</span>
+                            </div>
+                        </div>
+                        
+                        <button class="w-full bg-primary text-white py-3 rounded-2xl font-semibold hover:bg-orange-700 transition mb-3 reservation-btn" data-vehicle-id="${vehicle.id}">
+                            Rezervasyon Oluştur
+                        </button>
+                        
+                        <div class="flex gap-3">
+                            <button class="flex-1 bg-primary text-white py-2 rounded-2xl font-semibold hover:bg-orange-700 transition flex items-center justify-center whatsapp-btn" data-vehicle="${vehicle.name}">
+                                <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+                            </button>
+                            <button class="flex-1 bg-secondary text-white py-2 rounded-2xl font-semibold hover:bg-gray-800 transition flex items-center justify-center call-btn">
+                                <i class="fas fa-phone-alt mr-2"></i>Ara
+                            </button>
+                        </div>
+                        
+                        <button class="w-full mt-4 text-primary font-semibold hover:text-orange-700 transition detail-btn" data-vehicle-id="${vehicle.id}">
+                            <i class="fas fa-info-circle mr-2"></i>Detayları Gör
+                        </button>
+                    </div>
+                </div>
+            `).join("");
+        }
+
+        function renderFeatures(items) {
+            return items.map(item => `
+                <div class="text-center">
+                    <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="${item.icon} text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold text-secondary mb-3">${item.title}</h4>
+                    <p class="text-gray-600">${item.description}</p>
+                </div>
+            `).join("");
+        }
+
+        function renderFooterLinks(items) {
+            return items.map(item => 
+                `<li><a href="${item.href}" class="text-gray-300 hover:text-white transition">${item.label}</a></li>`
+            ).join("");
+        }
+
+        function renderVehicleDetail(vehicle) {
+            return `
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <img src="${vehicle.image}" alt="${vehicle.name}" class="w-full rounded-3xl shadow-xl" loading="lazy">
+                        <div class="mt-6">
+                            <h4 class="text-lg font-semibold mb-3">Özellikler</h4>
+                            <ul class="grid grid-cols-2 gap-2">
+                                ${vehicle.features.map(feature => 
+                                    `<li class="flex items-center text-gray-600">
+                                        <i class="fas fa-check text-primary mr-2"></i>
+                                        ${feature}
+                                    </li>`
+                                ).join("")}
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-secondary mb-4">${vehicle.name}</h4>
+                        <p class="text-gray-600 mb-6">${vehicle.description}</p>
+                        
+                        <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+                            <h5 class="font-semibold text-lg mb-4">Teknik Özellikler</h5>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <span class="text-gray-500">Model Yılı</span>
+                                    <p class="font-semibold">${vehicle.year}</p>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Vites Tipi</span>
+                                    <p class="font-semibold">${vehicle.transmission}</p>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Yakıt Tipi</span>
+                                    <p class="font-semibold">${vehicle.fuel}</p>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Koltuk Sayısı</span>
+                                    <p class="font-semibold">${vehicle.seats} Kişi</p>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Kategori</span>
+                                    <p class="font-semibold">${vehicle.category}</p>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Günlük Kira</span>
+                                    <p class="text-2xl font-bold text-primary">${vehicle.price} TL</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <button class="flex-1 bg-primary text-white py-3 rounded-2xl font-semibold hover:bg-orange-700 transition reservation-btn" data-vehicle-id="${vehicle.id}">
+                                Hemen Kirala
+                            </button>
+                            <button class="flex-1 bg-primary text-white py-3 rounded-2xl font-semibold hover:bg-orange-700 transition whatsapp-btn" data-vehicle="${vehicle.name}">
+                                <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize Page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Render all sections
+            document.getElementById('nav-menu').innerHTML = renderNavigation(navigationItems);
+            document.getElementById('vehicle-cards').innerHTML = renderVehicleCards(vehicles);
+            document.getElementById('features-grid').innerHTML = renderFeatures(features);
+            document.getElementById('footer-links-1').innerHTML = renderFooterLinks(footerLinks1);
+            document.getElementById('footer-links-2').innerHTML = renderFooterLinks(footerLinks2);
+
+            // Modal Elements
+            const reservationModal = document.getElementById('reservation-modal');
+            const detailModal = document.getElementById('vehicle-detail-modal');
+            const closeModalBtn = document.getElementById('close-modal');
+            const closeDetailModalBtn = document.getElementById('close-detail-modal');
+            const cancelReservationBtn = document.getElementById('cancel-reservation');
+            const reservationForm = document.getElementById('reservation-form');
+            const detailTitle = document.getElementById('detail-title');
+            const detailContent = document.getElementById('detail-content');
+
+            // Event Delegation for Vehicle Cards
+            document.addEventListener('click', function(event) {
+                // Reservation buttons
+                if (event.target.closest('.reservation-btn')) {
+                    event.preventDefault();
+                    const btn = event.target.closest('.reservation-btn');
+                    const vehicleId = btn.getAttribute('data-vehicle-id');
+                    const vehicle = vehicles.find(v => v.id == vehicleId);
+                    
+                    if (vehicle) {
+                        const vehicleInput = document.getElementById('selected-vehicle');
+                        vehicleInput.value = vehicle.name;
+                    }
+                    
+                    reservationModal.classList.add('active');
+                }
+                
+                // WhatsApp buttons
+                else if (event.target.closest('.whatsapp-btn')) {
+                    event.preventDefault();
+                    const btn = event.target.closest('.whatsapp-btn');
+                    const vehicleName = btn.getAttribute('data-vehicle');
+                    const phoneNumber = (window.SITE_CONFIG?.whatsappNumber || "");
+                    const message = `Merhaba, ${vehicleName} aracı hakkında bilgi almak istiyorum.`;
+                    window.open(window.SITE_CONFIG?.whatsappUrl?.(message) || `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+                }
+                
+                // Call buttons
+                else if (event.target.closest('.call-btn')) {
+                    event.preventDefault();
+                    window.location.href = 'tel:+' + (window.SITE_CONFIG?.callNumber || '');
+                }
+                
+                // Detail buttons
+                else if (event.target.closest('.detail-btn')) {
+                    event.preventDefault();
+                    const btn = event.target.closest('.detail-btn');
+                    const vehicleId = btn.getAttribute('data-vehicle-id');
+                    const vehicle = vehicles.find(v => v.id == vehicleId);
+                    
+                    if (vehicle) {
+                        detailTitle.textContent = `${vehicle.name} - Detaylar`;
+                        detailContent.innerHTML = renderVehicleDetail(vehicle);
+                        detailModal.classList.add('active');
+                    }
+                }
+            });
+
+            // Modal Controls
+            closeModalBtn.addEventListener('click', () => {
+                reservationModal.classList.remove('active');
+            });
+
+            closeDetailModalBtn.addEventListener('click', () => {
+                detailModal.classList.remove('active');
+            });
+
+            cancelReservationBtn.addEventListener('click', () => {
+                reservationModal.classList.remove('active');
+            });
+
+            // Close modals when clicking outside
+            [reservationModal, detailModal].forEach(modal => {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.classList.remove('active');
+                    }
+                });
+            });
+
+            // Form Submission
+            reservationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData);
+                
+                // Prepare WhatsApp message
+                const phoneNumber = (window.SITE_CONFIG?.whatsappNumber || "");
+                const message = `Yeni Rezervasyon Talebi:
+Araç: ${data[''] || 'Seçilmedi'}
+Tip: ${data[''] || 'Seçilmedi'}
+Alış: ${data[''] || 'Belirtilmedi'}
+Dönüş: ${data[''] || 'Belirtilmedi'}
+Teslim Yeri: ${data[''] || 'Belirtilmedi'}
+Ad Soyad: ${data[''] || 'Belirtilmedi'} ${data[''] || ''}
+Telefon: ${data[''] || 'Belirtilmedi'}
+E-posta: ${data[''] || 'Belirtilmedi'}`;
+                
+                window.open(window.SITE_CONFIG?.whatsappUrl?.(message) || `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+                reservationModal.classList.remove('active');
+                
+                // Show success message
+                alert('Rezervasyon talebiniz WhatsApp üzerinden gönderildi. En kısa sürede dönüş yapacağız.');
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const n=(window.SITE_CONFIG?.callNumber||'');
+  const el=document.getElementById('contact-phone-display');
+  if(el && n){
+    el.textContent='+'+n;
+  }
+  const wa=document.getElementById('footer-whatsapp-link');
+  const w=(window.SITE_CONFIG?.whatsappNumber||'');
+  if(wa && w){
+    wa.href=(window.SITE_CONFIG?.whatsappUrl?.() || 'https://wa.me/'+w);
+    wa.target='_blank';
+    wa.rel='noopener';
+  }
+  if(window.SITE_CONFIG?.siteTitle){ document.title = window.SITE_CONFIG.siteTitle; }
+  const emailEl=document.getElementById('contact-email-display');
+  if(emailEl && window.SITE_CONFIG?.email){ emailEl.textContent=window.SITE_CONFIG.email; }
+  const cityEl=document.getElementById('contact-city-display');
+  if(cityEl && window.SITE_CONFIG?.city){ cityEl.textContent=window.SITE_CONFIG.city; }
+});
+</script>
+
+</body>
+</html>
