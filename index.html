@@ -117,6 +117,47 @@
         @media (max-width: 980px) { .premium-hero-grid{grid-template-columns:1fr;text-align:center}.premium-hero-copy{text-align:center}.premium-hero-copy p{margin-left:auto;margin-right:auto}.premium-hero-actions,.premium-hero-stats{justify-content:center}.premium-hero-visual{min-height:360px}.hero-orbit{width:320px;height:320px}.hero-car-card img{height:230px} }
         @media (max-width: 640px) { .premium-header-btn span{display:none}.premium-menu-link{padding:.62rem .8rem;font-size:.82rem}.premium-hero-copy h2{font-size:3.1rem}.premium-hero-visual{min-height:300px}.hero-car-card{border-radius:30px}.hero-car-card img{height:190px} }
 
+
+        /* Revizyon: WhatsApp butonları marka yeşili, mobil menü kompakt */
+        .whatsapp-btn,
+        #footer-whatsapp-link,
+        .premium-whatsapp {
+            background: linear-gradient(135deg,#25D366 0%,#16a34a 100%) !important;
+            border: 1px solid rgba(255,255,255,.35) !important;
+            box-shadow: 0 14px 32px rgba(34,197,94,.28), inset 0 1px 0 rgba(255,255,255,.38) !important;
+        }
+        .whatsapp-btn:hover,
+        #footer-whatsapp-link:hover,
+        .premium-whatsapp:hover {
+            background: linear-gradient(135deg,#22c55e 0%,#15803d 100%) !important;
+            box-shadow: 0 18px 42px rgba(34,197,94,.36), inset 0 1px 0 rgba(255,255,255,.44) !important;
+        }
+        @media (max-width: 1024px) {
+            .premium-header .container { padding-top:.45rem; padding-bottom:.45rem; }
+            .premium-nav { flex-direction:row !important; flex-wrap:wrap; gap:.55rem; border-radius:22px; padding:.55rem; }
+            .premium-logo { flex:1 1 auto; min-width:180px; }
+            .premium-logo-mark { width:40px; height:40px; border-radius:14px; }
+            .premium-logo strong { font-size:1.05rem; }
+            .premium-logo small { font-size:.54rem; letter-spacing:.16em; }
+            #nav-menu { order:3; width:100%; display:grid !important; grid-template-columns:repeat(5,minmax(0,1fr)); gap:.35rem !important; }
+            .premium-menu-link { justify-content:center; gap:.25rem; padding:.5rem .28rem; font-size:.68rem; border-radius:14px; }
+            .premium-menu-link i { font-size:.74rem; }
+            .premium-header-btn { padding:.62rem .74rem; min-height:40px; font-size:.78rem; }
+        }
+        @media (max-width: 520px) {
+            .premium-nav { gap:.42rem; border-radius:18px; }
+            .premium-logo { min-width:150px; gap:.5rem; }
+            .premium-logo-mark { width:36px; height:36px; }
+            .premium-logo strong { font-size:.95rem; }
+            .premium-logo small { display:none; }
+            #nav-menu { grid-template-columns:repeat(5,minmax(0,1fr)); }
+            .premium-menu-link { padding:.42rem .18rem; font-size:.58rem; }
+            .premium-menu-link span { line-height:1.05; }
+            .premium-header-btn span { display:none; }
+            .premium-header-btn { width:40px; height:40px; padding:0; justify-content:center; }
+            #home { min-height:650px; padding-top:1.8rem; }
+        }
+
     </style>
     <script src="config.js"></script>
 </head>
@@ -150,7 +191,7 @@
         <div class="container mx-auto px-4 py-12 md:py-20">
             <div class="premium-hero-grid max-w-7xl mx-auto">
                 <div class="premium-hero-copy">
-                    <div class="premium-badge"><i class="fas fa-crown"></i> Türkiye'de Bir'İnci</div>
+                    <div class="premium-badge"><i class="fas fa-crown"></i> İstanbul Premium Filo Deneyimi</div>
                     <h2>GARENT FİLO ile kiralama değil, ayrıcalıklı sürüş başlar.</h2>
                     <p>Bakımlı seçkin araçlar, hızlı teslimat, şeffaf fiyatlandırma ve 7/24 destekle günlük, haftalık ve aylık premium araç kiralama çözümleri.</p>
                     <div class="premium-hero-actions">
@@ -396,9 +437,10 @@
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "800",
+        "price": "4.000",
+        "deposit": "4.000",
         "image": "assets/img/cars/citroen-celysee.webp",
-        "description": "Citroen C-Elysee kiralık araç. Depozito: 4000 TL.",
+        "description": "Citroen C-Elysee kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
         "features": [
             "Yokuş kalkış desteği",
             "Geniş bagaj"
@@ -412,9 +454,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1050",
+        "price": "4.000",
+        "deposit": "4.000",
         "image": "assets/img/cars/renault-clio.webp",
-        "description": "Renault Clio kiralık araç. Depozito: 4200 TL.",
+        "description": "Renault Clio kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
         "features": [
             "CarPlay",
             "Şerit takip"
@@ -428,9 +471,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1050",
+        "price": "4.000",
+        "deposit": "4.000",
         "image": "assets/img/cars/hyundai-i20.webp",
-        "description": "Hyundai i20 kiralık araç. Depozito: 4200 TL.",
+        "description": "Hyundai i20 kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
         "features": [
             "Geri görüş kamerası",
             "Bluetooth"
@@ -444,9 +488,10 @@
         "transmission": "Otomatik",
         "fuel": "Hibrit",
         "seats": 5,
-        "price": "1050",
+        "price": "4.000",
+        "deposit": "4.000",
         "image": "assets/img/cars/toyota-yaris.webp",
-        "description": "Toyota Yaris kiralık araç. Depozito: 4300 TL.",
+        "description": "Toyota Yaris kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
         "features": [
             "Adaptif hız sabitleyici",
             "Kör nokta uyarısı"
@@ -460,9 +505,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1050",
+        "price": "4.000",
+        "deposit": "4.000",
         "image": "assets/img/cars/ford-fiesta.webp",
-        "description": "Ford Fiesta kiralık araç. Depozito: 4300 TL.",
+        "description": "Ford Fiesta kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
         "features": [
             "Park sensörü",
             "Dokunmatik ekran"
@@ -476,9 +522,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1150",
+        "price": "4.000",
+        "deposit": "4.000",
         "image": "assets/img/cars/skoda-fabia.webp",
-        "description": "Skoda Fabia kiralık araç. Depozito: 4400 TL.",
+        "description": "Skoda Fabia kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
         "features": [
             "LED far",
             "Hız sabitleyici"
@@ -492,9 +539,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1200",
+        "price": "4.000",
+        "deposit": "4.000",
         "image": "assets/img/cars/vw-polo.webp",
-        "description": "VW Polo kiralık araç. Depozito: 4400 TL.",
+        "description": "VW Polo kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
         "features": [
             "Dijital klima",
             "Apple CarPlay"
@@ -508,9 +556,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1150",
+        "price": "4.000",
+        "deposit": "4.000",
         "image": "assets/img/cars/renault-taliant.webp",
-        "description": "Renault Taliant kiralık araç. Depozito: 4500 TL.",
+        "description": "Renault Taliant kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
         "features": [
             "Yakıt ekonomisi",
             "Geniş iç hacim"
@@ -524,9 +573,10 @@
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "1150",
+        "price": "4.000",
+        "deposit": "4.000",
         "image": "assets/img/cars/Fiat-egea.webp",
-        "description": "Fiat Egea kiralık araç. Depozito: 4500 TL.",
+        "description": "Fiat Egea kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
         "features": [
             "Dokunmatik ekran",
             "USB bağlantı"
@@ -540,9 +590,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1150",
+        "price": "4.000",
+        "deposit": "4.000",
         "image": "assets/img/cars/honda-city.webp",
-        "description": "Honda City kiralık araç. Depozito: 4600 TL.",
+        "description": "Honda City kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
         "features": [
             "Şerit destek",
             "Ekonomik sürüş modu"
@@ -556,9 +607,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1200",
+        "price": "4.000",
+        "deposit": "4.000",
         "image": "assets/img/cars/hyundai-accent.webp",
-        "description": "Hyundai Accent kiralık araç. Depozito: 4600 TL.",
+        "description": "Hyundai Accent kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
         "features": [
             "ABS",
             "Park sensörü"
@@ -572,9 +624,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1100",
+        "price": "4.000",
+        "deposit": "4.000",
         "image": "assets/img/cars/fiat-500l.webp",
-        "description": "Fiat 500L kiralık araç. Depozito: 4700 TL.",
+        "description": "Fiat 500L kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
         "features": [
             "Panoramik cam tavan",
             "Yüksek oturma pozisyonu"
@@ -588,9 +641,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1300",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/ford-focus.webp",
-        "description": "Ford Focus kiralık araç. Depozito: 4700 TL.",
+        "description": "Ford Focus kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "Şerit takip",
             "Geri görüş kamerası"
@@ -604,9 +658,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1200",
+        "price": "4.000",
+        "deposit": "4.000",
         "image": "assets/img/cars/renault-megane-hactback.webp",
-        "description": "Renault Megane Hatchback kiralık araç. Depozito: 4800 TL.",
+        "description": "Renault Megane Hatchback kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
         "features": [
             "Dijital gösterge",
             "Ambiyans aydınlatma"
@@ -620,9 +675,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1550",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/vw-Golf.webp",
-        "description": "VW Golf kiralık araç. Depozito: 4800 TL.",
+        "description": "VW Golf kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "Adaptive Cruise Control",
             "Dijital kokpit"
@@ -636,9 +692,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1500",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/honda-civic.webp",
-        "description": "Honda Civic kiralık araç. Depozito: 4900 TL.",
+        "description": "Honda Civic kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "Sunroof",
             "Kablosuz şarj"
@@ -652,9 +709,10 @@
         "transmission": "Otomatik",
         "fuel": "Hibrit",
         "seats": 5,
-        "price": "1500",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/toyota-corolla-hybrid.webp",
-        "description": "Toyota Corolla Hybrid kiralık araç. Depozito: 4900 TL.",
+        "description": "Toyota Corolla Hybrid kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "Hibrit sürüş",
             "Adaptif cruise"
@@ -668,9 +726,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1200",
+        "price": "4.000",
+        "deposit": "4.000",
         "image": "assets/img/cars/Renault-megane.webp",
-        "description": "Renault Megane Sedan kiralık araç. Depozito: 5000 TL.",
+        "description": "Renault Megane Sedan kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
         "features": [
             "Geniş bagaj",
             "Dijital klima"
@@ -684,9 +743,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1300",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/hyundai-elantra.webp",
-        "description": "Hyundai Elantra kiralık araç. Depozito: 5000 TL.",
+        "description": "Hyundai Elantra kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "Anahtarsız giriş",
             "Kör nokta uyarısı"
@@ -700,9 +760,10 @@
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "1950",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/bmw-320d.webp",
-        "description": "BMW 320d kiralık araç. Depozito: 5100 TL.",
+        "description": "BMW 320d kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "Deri koltuk",
             "Navigasyon"
@@ -716,9 +777,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1800",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/audi-a3.webp",
-        "description": "Audi A3 kiralık araç. Depozito: 5100 TL.",
+        "description": "Audi A3 kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "Virtual cockpit",
             "LED far"
@@ -732,9 +794,10 @@
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "1500",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/ford-mondeo.webp",
-        "description": "Ford Mondeo kiralık araç. Depozito: 5200 TL.",
+        "description": "Ford Mondeo kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "Adaptif far",
             "Çift bölgeli klima"
@@ -748,9 +811,10 @@
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "1700",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/Vw-Passat.webp",
-        "description": "VW Passat kiralık araç. Depozito: 5200 TL.",
+        "description": "VW Passat kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "Masaj koltuğu",
             "Kablosuz CarPlay"
@@ -764,9 +828,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1700",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/skoda-superb.webp",
-        "description": "Skoda Superb kiralık araç. Depozito: 5300 TL.",
+        "description": "Skoda Superb kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "Geniş diz mesafesi",
             "Elektrikli bagaj"
@@ -780,9 +845,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "2700",
+        "price": "5.000",
+        "deposit": "5.000",
         "image": "assets/img/cars/mercedes-cla200.webp",
-        "description": "Mercedes CLA 200 kiralık araç. Depozito: 5400 TL.",
+        "description": "Mercedes CLA 200 kiralık araç. Günlük kiralama fiyatı 5.000 TL’den başlar. Depozito: 5.000 TL.",
         "features": [
             "MBUX ekran",
             "Ambiyans aydınlatma"
@@ -796,9 +862,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "3000",
+        "price": "5.000",
+        "deposit": "5.000",
         "image": "assets/img/cars/audi-a6.webp",
-        "description": "Audi A6 kiralık araç. Depozito: 5500 TL.",
+        "description": "Audi A6 kiralık araç. Günlük kiralama fiyatı 5.000 TL’den başlar. Depozito: 5.000 TL.",
         "features": [
             "4 bölgeli klima",
             "Navigasyon"
@@ -812,9 +879,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "2800",
+        "price": "5.000",
+        "deposit": "5.000",
         "image": "assets/img/cars/bmw-420i.webp",
-        "description": "BMW 420i Coupe kiralık araç. Depozito: 5600 TL.",
+        "description": "BMW 420i Coupe kiralık araç. Günlük kiralama fiyatı 5.000 TL’den başlar. Depozito: 5.000 TL.",
         "features": [
             "Harman Kardon",
             "Elektrikli koltuk"
@@ -828,9 +896,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "2800",
+        "price": "5.000",
+        "deposit": "5.000",
         "image": "assets/img/cars/bmw-520i.webp",
-        "description": "BMW 520i kiralık araç. Depozito: 5700 TL.",
+        "description": "BMW 520i kiralık araç. Günlük kiralama fiyatı 5.000 TL’den başlar. Depozito: 5.000 TL.",
         "features": [
             "Konfor koltuk",
             "Şerit ortalama"
@@ -844,9 +913,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "3200",
+        "price": "5.000",
+        "deposit": "5.000",
         "image": "assets/img/cars/mercedes-e200.webp",
-        "description": "Mercedes E200 kiralık araç. Depozito: 5800 TL.",
+        "description": "Mercedes E200 kiralık araç. Günlük kiralama fiyatı 5.000 TL’den başlar. Depozito: 5.000 TL.",
         "features": [
             "Burmester ses sistemi",
             "360 kamera"
@@ -860,9 +930,10 @@
         "transmission": "Otomatik",
         "fuel": "Elektrik",
         "seats": 5,
-        "price": "1800",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/byd-seal.webp",
-        "description": "BYD Seal kiralık araç. Depozito: 5900 TL.",
+        "description": "BYD Seal kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "Elektrikli performans",
             "Isıtmalı koltuk"
@@ -876,9 +947,10 @@
         "transmission": "Otomatik",
         "fuel": "Elektrik",
         "seats": 5,
-        "price": "2300",
+        "price": "5.000",
+        "deposit": "5.000",
         "image": "assets/img/cars/Tesla.webp",
-        "description": "Tesla Model kiralık araç. Depozito: 6000 TL.",
+        "description": "Tesla Model kiralık araç. Günlük kiralama fiyatı 5.000 TL’den başlar. Depozito: 5.000 TL.",
         "features": [
             "Otopilot",
             "Cam tavan"
@@ -892,9 +964,10 @@
         "transmission": "Otomatik",
         "fuel": "Elektrik",
         "seats": 5,
-        "price": "6700",
+        "price": "7.000",
+        "deposit": "7.000",
         "image": "assets/img/cars/porche-taycan.webp",
-        "description": "Porsche Taycan kiralık araç. Depozito: 7000 TL.",
+        "description": "Porsche Taycan kiralık araç. Günlük kiralama fiyatı 7.000 TL’den başlar. Depozito: 7.000 TL.",
         "features": [
             "Launch control",
             "Premium ses sistemi"
@@ -908,9 +981,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1300",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/ford-puma.webp",
-        "description": "Ford Puma kiralık araç. Depozito: 5400 TL.",
+        "description": "Ford Puma kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "Büyük bagaj",
             "Şerit takip"
@@ -924,9 +998,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1800",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/audi-q2.webp",
-        "description": "Audi Q2 kiralık araç. Depozito: 5500 TL.",
+        "description": "Audi Q2 kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "Yüksek sürüş pozisyonu",
             "LED far"
@@ -940,9 +1015,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1550",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/chery-omoda5.webp",
-        "description": "Chery Omoda 5 kiralık araç. Depozito: 5500 TL.",
+        "description": "Chery Omoda 5 kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "360 kamera",
             "Kablosuz şarj"
@@ -956,9 +1032,10 @@
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "1600",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/hyundai-tucson.webp",
-        "description": "Hyundai Tucson kiralık araç. Depozito: 5600 TL.",
+        "description": "Hyundai Tucson kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "Isıtmalı koltuk",
             "Adaptif cruise"
@@ -972,9 +1049,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1700",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/honda-crv.webp",
-        "description": "Honda CR-V kiralık araç. Depozito: 5700 TL.",
+        "description": "Honda CR-V kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "Elektrikli bagaj",
             "Sunroof"
@@ -988,9 +1066,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1500",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/jaecoo-j7.webp",
-        "description": "Jaecoo J7 kiralık araç. Depozito: 5800 TL.",
+        "description": "Jaecoo J7 kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "Off-road modu",
             "Panoramik tavan"
@@ -1004,9 +1083,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1600",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/Chery-tiggopro8.webp",
-        "description": "Chery Tiggo Pro 8 kiralık araç. Depozito: 5900 TL.",
+        "description": "Chery Tiggo Pro 8 kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "7 koltuk",
             "360 kamera"
@@ -1020,9 +1100,10 @@
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "2500",
+        "price": "5.000",
+        "deposit": "5.000",
         "image": "assets/img/cars/audi-q5.webp",
-        "description": "Audi Q5 kiralık araç. Depozito: 6100 TL.",
+        "description": "Audi Q5 kiralık araç. Günlük kiralama fiyatı 5.000 TL’den başlar. Depozito: 5.000 TL.",
         "features": [
             "Quattro",
             "Sanal kokpit"
@@ -1036,9 +1117,10 @@
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "2500",
+        "price": "5.000",
+        "deposit": "5.000",
         "image": "assets/img/cars/bmw-x5.webp",
-        "description": "BMW X5 kiralık araç. Depozito: 6300 TL.",
+        "description": "BMW X5 kiralık araç. Günlük kiralama fiyatı 5.000 TL’den başlar. Depozito: 5.000 TL.",
         "features": [
             "Panoramik cam tavan",
             "Hafızalı koltuk"
@@ -1052,9 +1134,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4700",
+        "price": "6.000",
+        "deposit": "6.000",
         "image": "assets/img/cars/range-rover-velar.webp",
-        "description": "Range Rover Velar kiralık araç. Depozito: 6500 TL.",
+        "description": "Range Rover Velar kiralık araç. Günlük kiralama fiyatı 6.000 TL’den başlar. Depozito: 6.000 TL.",
         "features": [
             "Meridian ses sistemi",
             "Elektrikli bagaj"
@@ -1068,9 +1151,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4700",
+        "price": "6.000",
+        "deposit": "6.000",
         "image": "assets/img/cars/range-rover-sport.webp",
-        "description": "Range Rover Sport kiralık araç. Depozito: 6800 TL.",
+        "description": "Range Rover Sport kiralık araç. Günlük kiralama fiyatı 6.000 TL’den başlar. Depozito: 6.000 TL.",
         "features": [
             "Hava süspansiyon",
             "Off-road paketi"
@@ -1084,9 +1168,10 @@
         "transmission": "Otomatik",
         "fuel": "Elektrik",
         "seats": 5,
-        "price": "1500",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/megane-tech.webp",
-        "description": "Megane E-Tech kiralık araç. Depozito: 6000 TL.",
+        "description": "Megane E-Tech kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "Tam elektrikli",
             "Dijital kokpit"
@@ -1100,9 +1185,10 @@
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "1200",
+        "price": "4.000",
+        "deposit": "4.000",
         "image": "assets/img/cars/ford-courrier.webp",
-        "description": "Ford Courier kiralık araç. Depozito: 4700 TL.",
+        "description": "Ford Courier kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
         "features": [
             "Kayar kapı",
             "Geniş yükleme alanı"
@@ -1116,9 +1202,10 @@
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "1200",
+        "price": "4.000",
+        "deposit": "4.000",
         "image": "assets/img/cars/fiat-doblo.webp",
-        "description": "Fiat Doblo kiralık araç. Depozito: 4800 TL.",
+        "description": "Fiat Doblo kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
         "features": [
             "Çift sürgülü kapı",
             "Park sensörü"
@@ -1132,9 +1219,10 @@
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "1150",
+        "price": "4.000",
+        "deposit": "4.000",
         "image": "assets/img/cars/renault-express.webp",
-        "description": "Renault Express kiralık araç. Depozito: 4800 TL.",
+        "description": "Renault Express kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
         "features": [
             "Yük sabitleme kancası",
             "Bluetooth"
@@ -1148,9 +1236,10 @@
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "1550",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/vw-caddy.webp",
-        "description": "VW Caddy kiralık araç. Depozito: 5000 TL.",
+        "description": "VW Caddy kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "Arka kamera",
             "Uzun aks aralığı"
@@ -1164,9 +1253,10 @@
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "1800",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/vw-Passat-Stationwagon.webp",
-        "description": "VW Passat Variant kiralık araç. Depozito: 5400 TL.",
+        "description": "VW Passat Variant kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "Dev bagaj hacmi",
             "Adaptif cruise"
@@ -1180,9 +1270,10 @@
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "1700",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/ford-custom.webp",
-        "description": "Ford Custom kiralık araç. Depozito: 5600 TL.",
+        "description": "Ford Custom kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "8+1 oturma",
             "Çift klima"
@@ -1196,9 +1287,10 @@
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "2500",
+        "price": "5.000",
+        "deposit": "5.000",
         "image": "assets/img/cars/vito-cclass.webp",
-        "description": "Mercedes Vito kiralık araç. Depozito: 6000 TL.",
+        "description": "Mercedes Vito kiralık araç. Günlük kiralama fiyatı 5.000 TL’den başlar. Depozito: 5.000 TL.",
         "features": [
             "VIP dönüşüm uygunluğu",
             "Arka klima"
@@ -1212,9 +1304,10 @@
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "2300",
+        "price": "5.000",
+        "deposit": "5.000",
         "image": "assets/img/cars/vw-caravella.webp",
-        "description": "VW Caravelle kiralık araç. Depozito: 6200 TL.",
+        "description": "VW Caravelle kiralık araç. Günlük kiralama fiyatı 5.000 TL’den başlar. Depozito: 5.000 TL.",
         "features": [
             "8+1 konfor paket",
             "Sunroof"
@@ -1228,9 +1321,10 @@
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "1500",
+        "price": "4.500",
+        "deposit": "4.500",
         "image": "assets/img/cars/vw-trock.webp",
-        "description": "VW T-Roc kiralık araç. Depozito: 5600 TL.",
+        "description": "VW T-Roc kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
         "features": [
             "Dijital kokpit",
             "Apple CarPlay"
@@ -1299,6 +1393,9 @@
                             </div>
                             <div class="text-right">
                                 <div class="text-2xl font-bold text-primary">${vehicle.price} TL<span class="text-sm text-gray-500">/gün</span></div>
+                                <div class="mt-2 inline-flex items-center justify-end gap-2 rounded-full bg-orange-50 px-3 py-1 text-xs font-bold text-orange-900 border border-orange-100">
+                                    <i class="fas fa-shield-alt text-primary"></i> Depozito: ${vehicle.deposit || '4.000'} TL
+                                </div>
                             </div>
                         </div>
                         
@@ -1326,7 +1423,7 @@
                         </button>
                         
                         <div class="flex gap-3">
-                            <button class="flex-1 bg-primary text-white py-2 rounded-2xl font-semibold hover:bg-orange-700 transition flex items-center justify-center whatsapp-btn" data-vehicle="${vehicle.name}">
+                            <button class="flex-1 text-white py-2 rounded-2xl font-semibold transition flex items-center justify-center whatsapp-btn" data-vehicle="${vehicle.name}">
                                 <i class="fab fa-whatsapp mr-2"></i>WhatsApp
                             </button>
                             <button class="flex-1 bg-secondary text-white py-2 rounded-2xl font-semibold hover:bg-gray-800 transition flex items-center justify-center call-btn">
@@ -1408,6 +1505,10 @@
                                     <span class="text-gray-500">Günlük Kira</span>
                                     <p class="text-2xl font-bold text-primary">${vehicle.price} TL</p>
                                 </div>
+                                <div>
+                                    <span class="text-gray-500">Depozito</span>
+                                    <p class="text-2xl font-bold text-primary">${vehicle.deposit || '4.000'} TL</p>
+                                </div>
                             </div>
                         </div>
                         
@@ -1415,7 +1516,7 @@
                             <button class="flex-1 bg-primary text-white py-3 rounded-2xl font-semibold hover:bg-orange-700 transition reservation-btn" data-vehicle-id="${vehicle.id}">
                                 Hemen Kirala
                             </button>
-                            <button class="flex-1 bg-primary text-white py-3 rounded-2xl font-semibold hover:bg-orange-700 transition whatsapp-btn" data-vehicle="${vehicle.name}">
+                            <button class="flex-1 text-white py-3 rounded-2xl font-semibold transition whatsapp-btn" data-vehicle="${vehicle.name}">
                                 <i class="fab fa-whatsapp mr-2"></i>WhatsApp
                             </button>
                         </div>
