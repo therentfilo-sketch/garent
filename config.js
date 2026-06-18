@@ -1,8 +1,8 @@
-const SITE_CONFIG = {
+window.SITE_CONFIG = {
   siteName: "GARENT FİLO",
   siteTitle: "GARENT FİLO | Premium Araç Kiralama",
   whatsappNumber: "905543428004",
-  callNumber: "05532937374",
+  callNumber: "905532937374",
   email: "info@garentfilo.com",
   city: "İstanbul, Türkiye",
   whatsappUrl(message = "") {

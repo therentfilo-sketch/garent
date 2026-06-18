@@ -160,6 +160,21 @@
 
     </style>
     <script src="config.js"></script>
+<script>
+window.SITE_CONFIG = window.SITE_CONFIG || {
+  siteName: "GARENT FİLO",
+  siteTitle: "GARENT FİLO | Premium Araç Kiralama",
+  whatsappNumber: "905543428004",
+  callNumber: "905532937374",
+  email: "info@garentfilo.com",
+  city: "İstanbul, Türkiye",
+  whatsappUrl(message = "") {
+    const text = message ? `?text=${encodeURIComponent(message)}` : "";
+    return `https://wa.me/${this.whatsappNumber}${text}`;
+  }
+};
+</script>
+
 </head>
 <body class="min-h-screen bg-gradient-white font-poppins">
     <!-- Header & Navigation -->
@@ -178,7 +193,7 @@
                     <button onclick="window.open(window.SITE_CONFIG?.whatsappUrl?.('Merhaba, GARENT FİLO hakkında bilgi almak istiyorum.') || '#','_blank')" class="premium-header-btn premium-whatsapp">
                         <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
                     </button>
-                    <button onclick="window.location.href='tel:'+(window.SITE_CONFIG?.callNumber||'')" class="premium-header-btn">
+                    <button onclick="window.location.href='tel:+'+(window.SITE_CONFIG?.callNumber||'')" class="premium-header-btn">
                         <i class="fas fa-phone-alt"></i><span>Hemen Ara</span>
                     </button>
                 </div>
