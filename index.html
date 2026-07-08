@@ -4,8 +4,8 @@
     <base target="_self">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GARENT FİLO | Premium Araç Kiralama</title>
-    <meta name="description" content="Premium araç kiralama hizmeti. Lüks, ekonomi ve SUV araç kiralama seçenekleri ile hizmetinizdeyiz.">
+    <title>GARENT FİLO | Türkiye Geneli Araç Kiralama</title>
+    <meta name="description" content="Türkiye geneli araç kiralama hizmeti. Ekonomik, orta segment ve lüks araç seçenekleriyle günlük kiralama.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -158,22 +158,59 @@
             #home { min-height:650px; padding-top:1.8rem; }
         }
 
+
+        /* Light premium redesign */
+        :root { --cream:#fff9f0; --paper:#ffffff; --sand:#f7ead7; --gold:#c8892f; --gold2:#f5b75f; --ink:#1f2937; --muted:#64748b; --line:rgba(200,137,47,.20); }
+        body { color:var(--ink); background:radial-gradient(circle at 10% 10%, rgba(245,183,95,.28), transparent 22rem), radial-gradient(circle at 90% 2%, rgba(200,137,47,.15), transparent 24rem), linear-gradient(180deg,#fffaf2 0%,#ffffff 48%,#fff7ed 100%) !important; }
+        .premium-header { background:rgba(255,250,242,.86) !important; color:var(--ink) !important; border-bottom:1px solid var(--line) !important; box-shadow:0 18px 60px rgba(148,100,35,.10) !important; }
+        .premium-nav { background:rgba(255,255,255,.74) !important; border:1px solid rgba(200,137,47,.22) !important; box-shadow:0 18px 55px rgba(148,100,35,.12), inset 0 1px 0 rgba(255,255,255,.9) !important; }
+        .premium-logo { color:var(--ink) !important; }
+        .premium-logo small { color:#a16207 !important; }
+        .premium-logo-mark { background:linear-gradient(135deg,#fff3d7,#f5b75f 55%,#c8892f) !important; color:#4a2d08 !important; }
+        .premium-menu-link { color:#334155 !important; background:#fff !important; border:1px solid rgba(200,137,47,.16) !important; box-shadow:0 8px 26px rgba(148,100,35,.08); }
+        .premium-menu-link:hover { color:#7c4a0b !important; background:#fff7e8 !important; border-color:rgba(200,137,47,.35) !important; }
+        .premium-header-btn, .bg-primary, button.bg-primary, a.bg-primary, .premium-main-btn { background:linear-gradient(135deg,#f8c36d,#d49333 52%,#b7791f) !important; color:#fff !important; box-shadow:0 16px 36px rgba(200,137,47,.25), inset 0 1px 0 rgba(255,255,255,.45) !important; border:1px solid rgba(255,255,255,.55) !important; }
+        .premium-call { background:linear-gradient(135deg,#ffffff,#fff2d9) !important; color:#7c4a0b !important; border-color:rgba(200,137,47,.28) !important; }
+        .text-primary { color:#c8892f !important; } .border-primary { border-color:rgba(200,137,47,.55) !important; }
+        #home { background:linear-gradient(135deg, rgba(255,250,242,.96), rgba(255,255,255,.94) 45%, rgba(255,239,214,.9)), radial-gradient(circle at 78% 18%, rgba(245,183,95,.36), transparent 22rem) !important; }
+        #home h2, .premium-hero-copy h2 { background:linear-gradient(135deg,#1f2937 0%,#7c4a0b 58%,#d49333 100%) !important; -webkit-background-clip:text !important; color:transparent !important; }
+        .premium-badge { background:#fff !important; color:#8a5a12 !important; border-color:rgba(200,137,47,.20) !important; box-shadow:0 12px 28px rgba(148,100,35,.10) !important; }
+        .premium-outline-btn { color:#7c4a0b !important; background:rgba(255,255,255,.82) !important; border:1px solid rgba(200,137,47,.24) !important; box-shadow:0 18px 45px rgba(148,100,35,.12) !important; }
+        .card-hover, section .bg-white, .modal > div { background:rgba(255,255,255,.88) !important; border:1px solid rgba(200,137,47,.18) !important; box-shadow:0 22px 70px rgba(148,100,35,.12) !important; }
+        .card-hover:hover { box-shadow:0 32px 90px rgba(200,137,47,.20) !important; }
+        .bg-gray-50 { background:linear-gradient(180deg,#fffaf2,#ffffff) !important; }
+        footer { background:linear-gradient(135deg,#fffaf2,#ffffff 52%,#fff0d7) !important; color:var(--ink) !important; border-top:1px solid rgba(200,137,47,.18); }
+        footer .text-gray-300, footer .text-gray-400, footer a { color:#64748b !important; }
+        footer .border-gray-700 { border-color:rgba(200,137,47,.18) !important; }
+        footer a.bg-gray-700 { background:#fff !important; color:#c8892f !important; border:1px solid rgba(200,137,47,.18); }
+        .hero-card-bottom { background:rgba(255,255,255,.88) !important; color:#1f2937 !important; border:1px solid rgba(200,137,47,.18); }
+        .hero-card-bottom b { color:#c8892f !important; }
+
+        .premium-floating-contact { position:fixed; right:18px; bottom:18px; z-index:80; display:flex; flex-direction:column; gap:.75rem; }
+        .premium-float-btn { display:flex; align-items:center; justify-content:center; gap:.55rem; border-radius:999px; padding:.9rem 1rem; font-weight:900; color:#fff; border:1px solid rgba(255,255,255,.65); box-shadow:0 18px 44px rgba(148,100,35,.18); backdrop-filter:blur(14px); }
+        .premium-float-wa { background:linear-gradient(135deg,#25D366,#16a34a) !important; }
+        .premium-float-call { background:linear-gradient(135deg,#f8c36d,#c8892f) !important; }
+        @media (max-width:640px){ .premium-floating-contact{left:12px;right:12px;bottom:12px;flex-direction:row}.premium-float-btn{flex:1;padding:.85rem .6rem;font-size:.86rem} body{padding-bottom:76px} }
+
+    
+
+        /* White theme override */
+        body { background:#ffffff !important; color:#111827; }
+        .premium-header { background:rgba(255,255,255,.96) !important; border-bottom:1px solid #e5e7eb !important; box-shadow:0 10px 30px rgba(15,23,42,.06); }
+        header, header a, header button, #nav-menu a { color:#111827 !important; }
+        #home { background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%) !important; }
+        #home::before { border-color:#e5e7eb !important; background:transparent !important; }
+        #home h2 { background:none !important; -webkit-background-clip:initial !important; color:#111827 !important; }
+        .premium-badge { background:#ffffff !important; color:#111827 !important; border:1px solid #e5e7eb !important; box-shadow:0 8px 24px rgba(15,23,42,.06) !important; }
+        .card-hover, #vehicle-cards > div, section .bg-white, .modal > div { background:#ffffff !important; border:1px solid #e5e7eb !important; box-shadow:0 16px 45px rgba(15,23,42,.08) !important; }
+        .card-hover:hover { box-shadow:0 24px 70px rgba(15,23,42,.14) !important; }
+        .bg-primary, button.bg-primary, a.bg-primary { background:#f97316 !important; color:#ffffff !important; box-shadow:0 12px 28px rgba(249,115,22,.22) !important; }
+        .text-secondary { color:#111827 !important; }
+        .bg-secondary { background:#111827 !important; }
+
     </style>
     <script src="config.js"></script>
-<script>
-window.SITE_CONFIG = window.SITE_CONFIG || {
-  siteName: "GARENT FİLO",
-  siteTitle: "GARENT FİLO | Premium Araç Kiralama",
-  whatsappNumber: "905513722656",
-  callNumber: "905532937374",
-  email: "info@garentfilo.com",
-  city: "İstanbul, Türkiye",
-  whatsappUrl(message = "") {
-    const text = message ? `?text=${encodeURIComponent(message)}` : "";
-    return `https://wa.me/${this.whatsappNumber}${text}`;
-  }
-};
-</script>
+
 
 </head>
 <body class="min-h-screen bg-gradient-white font-poppins">
@@ -190,11 +227,11 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
                 </a>
                 <ul id="nav-menu" class="premium-menu flex flex-wrap justify-center gap-2 md:gap-3"></ul>
                 <div class="flex items-center gap-3">
-                    <button onclick="window.open(window.SITE_CONFIG?.whatsappUrl?.('Merhaba, GARENT FİLO hakkında bilgi almak istiyorum.') || '#','_blank')" class="premium-header-btn premium-whatsapp">
-                        <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
+                    <button data-config-action="header-whatsapp" class="premium-header-btn premium-whatsapp">
+                        <i class="fab fa-whatsapp"></i><span data-config-text="headerWhatsApp">WhatsApp</span>
                     </button>
-                    <button onclick="window.location.href='tel:+'+(window.SITE_CONFIG?.callNumber||'')" class="premium-header-btn">
-                        <i class="fas fa-phone-alt"></i><span>Hemen Ara</span>
+                    <button data-config-action="call" class="premium-header-btn premium-call">
+                        <i class="fas fa-phone-alt"></i><span data-config-text="headerCall">Hemen Ara</span>
                     </button>
                 </div>
             </nav>
@@ -206,19 +243,19 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         <div class="container mx-auto px-4 py-12 md:py-20">
             <div class="premium-hero-grid max-w-7xl mx-auto">
                 <div class="premium-hero-copy">
-                    <div class="premium-badge"><i class="fas fa-crown"></i> İstanbul Premium Filo Deneyimi</div>
+                    <div class="premium-badge"><i class="fas fa-crown"></i> Türkiye Geneli Araç Kiralama</div>
                     <h2>GARENT FİLO ile kiralama değil, ayrıcalıklı sürüş başlar.</h2>
                     <p>Bakımlı seçkin araçlar, hızlı teslimat, şeffaf fiyatlandırma ve 7/24 destekle günlük, haftalık ve aylık premium araç kiralama çözümleri.</p>
                     <div class="premium-hero-actions">
-                        <button onclick="document.getElementById('reservation-modal').classList.add('active')" class="premium-glass-btn premium-main-btn">
-                            <i class="fas fa-calendar-check"></i><span>Premium Rezervasyon</span>
+                        <button data-config-action="reservation" class="premium-glass-btn premium-main-btn">
+                            <i class="fas fa-calendar-check"></i><span data-config-text="heroReservation">Rezervasyon Oluştur</span>
                         </button>
-                        <button onclick="window.open(window.SITE_CONFIG?.whatsappUrl?.('Merhaba, GARENT FİLO araç kiralama hizmetleri hakkında bilgi almak istiyorum.') || `https://wa.me/${window.SITE_CONFIG?.whatsappNumber||''}`,'_blank')" class="premium-glass-btn premium-outline-btn">
-                            <i class="fab fa-whatsapp"></i><span>WhatsApp Danışmanı</span>
+                        <button data-config-action="hero-whatsapp" class="premium-glass-btn premium-outline-btn">
+                            <i class="fab fa-whatsapp"></i><span data-config-text="heroWhatsApp">WhatsApp Danışmanı</span>
                         </button>
                     </div>
                     <div class="premium-hero-stats">
-                        <span><strong>50+</strong><small>Premium Araç</small></span>
+                        <span><strong>50+</strong><small>Araç Seçeneği</small></span>
                         <span><strong>7/24</strong><small>Canlı Destek</small></span>
                         <span><strong>Hızlı</strong><small>Teslimat</small></span>
                     </div>
@@ -228,19 +265,19 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
                     <div class="hero-car-card">
                         <span class="hero-card-label">GARENT SIGNATURE</span>
                         <img src="assets/img/cars/bmw-520i.webp" alt="GARENT FİLO premium araç" loading="eager">
-                        <div class="hero-card-bottom"><span>Executive Filo</span><b>Premium Ready</b></div>
+                        <div class="hero-card-bottom"><span>Geniş Filo</span><b>Hemen Teslim</b></div>
                     </div>
                 </div>
             </div>
             <div class="container mx-auto px-4">
                 <div class="premium-marquee mt-10" aria-label="GARENT FİLO avantajları">
                     <div class="premium-marquee-track">
-                        <span>Premium Filo</span><i class="fas fa-diamond"></i>
+                        <span>Türkiye Geneli Filo</span><i class="fas fa-diamond"></i>
                         <span>7/24 Destek</span><i class="fas fa-diamond"></i>
                         <span>Hızlı Teslimat</span><i class="fas fa-diamond"></i>
                         <span>Şeffaf Fiyat</span><i class="fas fa-diamond"></i>
                         <span>Kurumsal Kalite</span><i class="fas fa-diamond"></i>
-                        <span>Premium Filo</span><i class="fas fa-diamond"></i>
+                        <span>Türkiye Geneli Filo</span><i class="fas fa-diamond"></i>
                         <span>7/24 Destek</span><i class="fas fa-diamond"></i>
                         <span>Hızlı Teslimat</span><i class="fas fa-diamond"></i>
                     </div>
@@ -276,7 +313,7 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
                     <option value="hybrid">Hybrid</option>
                 </select>
                 <button class="bg-primary text-white rounded-lg px-6 py-3 font-semibold hover:bg-orange-700 transition">
-                    <i class="fas fa-filter mr-2"></i>Filtrele
+                    <i class="fas fa-filter mr-2"></i><span data-config-text="filter">Filtrele</span>
                 </button>
             </div>
         </div>
@@ -330,7 +367,7 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-map-marker-alt text-primary mr-3"></i>
-                            <span id="contact-city-display">İstanbul, Türkiye</span>
+                            <span id="contact-city-display">Türkiye Geneli</span>
                         </li>
                     </ul>
                     <div class="flex space-x-4 mt-6">
@@ -352,6 +389,17 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         </div>
     </footer>
 
+
+    <!-- Floating Contact Buttons -->
+    <div class="premium-floating-contact" aria-label="Hızlı iletişim">
+        <button data-config-action="header-whatsapp" class="premium-float-btn premium-float-wa">
+            <i class="fab fa-whatsapp"></i><span data-config-text="headerWhatsApp">WhatsApp</span>
+        </button>
+        <button data-config-action="call" class="premium-float-btn premium-float-call">
+            <i class="fas fa-phone-alt"></i><span data-config-text="headerCall">Hemen Ara</span>
+        </button>
+    </div>
+
     <!-- Reservation Modal -->
     <div id="reservation-modal" class="modal">
         <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto">
@@ -370,7 +418,7 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
                         </div>
                         <div>
                             <label class="block text-gray-700 mb-2">Kiralama Tipi *</label>
-                            <select class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" required>
+                            <select name="rental_type" class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" required>
                                 <option value="">Tip seçin</option>
                                 <option value="personal">Şahıs</option>
                                 <option value="company">Şirket</option>
@@ -378,39 +426,39 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
                         </div>
                         <div>
                             <label class="block text-gray-700 mb-2">Alış Tarihi *</label>
-                            <input type="date" class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" required>
+                            <input name="pickup_date" type="date" class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" required>
                         </div>
                         <div>
                             <label class="block text-gray-700 mb-2">Dönüş Tarihi *</label>
-                            <input type="date" class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" required>
+                            <input name="return_date" type="date" class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" required>
                         </div>
                         <div class="md:col-span-2">
                             <label class="block text-gray-700 mb-2">Teslim Yeri *</label>
-                            <input type="text" class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Teslim almak istediğiniz adres" required>
+                            <input name="delivery_location" type="text" class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Teslim almak istediğiniz adres" required>
                         </div>
                         <div>
                             <label class="block text-gray-700 mb-2">Adınız</label>
-                            <input type="text" class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <input name="first_name" type="text" class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
                         </div>
                         <div>
                             <label class="block text-gray-700 mb-2">Soyadınız</label>
-                            <input type="text" class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <input name="last_name" type="text" class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
                         </div>
                         <div>
                             <label class="block text-gray-700 mb-2">Telefon *</label>
-                            <input type="tel" class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" required>
+                            <input name="phone" type="tel" class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" required>
                         </div>
                         <div>
                             <label class="block text-gray-700 mb-2">E-posta Adresi</label>
-                            <input type="email" class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <input name="email" type="email" class="w-full border border-gray-300 rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
                         </div>
                     </div>
                     <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-end">
                         <button type="button" id="cancel-reservation" class="px-8 py-3 border border-gray-300 text-gray-700 rounded-2xl font-semibold hover:bg-gray-50 transition">
-                            İptal
+                            <span data-config-text="modalCancel">İptal</span>
                         </button>
                         <button type="submit" class="bg-primary text-white px-8 py-3 rounded-2xl font-semibold hover:bg-orange-700 transition flex items-center justify-center">
-                            <i class="fab fa-whatsapp mr-2"></i>WhatsApp'tan Gönder
+                            <i class="fab fa-whatsapp mr-2"></i><span data-config-text="modalSubmit">WhatsApp'tan Gönder</span>
                         </button>
                     </div>
                 </form>
@@ -443,6 +491,11 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
             { "label": "İletişim", "href": "#contact", "icon": "fas fa-phone-alt" }
         ];
 
+        function siteConfig() { return window.SITE_CONFIG || {}; }
+        function buttonText(key, fallback) { return siteConfig().buttons?.[key] || fallback; }
+        function openWhatsApp(message) { window.open(siteConfig().whatsappUrl?.(message) || `https://wa.me/${siteConfig().whatsappNumber || ''}?text=${encodeURIComponent(message || '')}`, '_blank'); }
+        function startCall() { window.location.href = siteConfig().callUrl?.() || ('tel:+' + (siteConfig().callNumber || '')); }
+
         const vehicles = [
     {
         "id": 1,
@@ -452,13 +505,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "4.000",
-        "deposit": "4.000",
+        "price": "800",
+        "deposit": "800",
         "image": "assets/img/cars/citroen-celysee.webp",
-        "description": "Citroen C-Elysee kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
+        "description": "Citroen C-Elysee 2024 model otomatik dizel kiralık araç. Günlük kiralama fiyatı 800 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Yokuş kalkış desteği",
-            "Geniş bagaj"
+            "Ekonomik kullanım",
+            "Konforlu sürüş"
         ]
     },
     {
@@ -469,13 +522,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.000",
-        "deposit": "4.000",
+        "price": "1.050",
+        "deposit": "1.050",
         "image": "assets/img/cars/renault-clio.webp",
-        "description": "Renault Clio kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
+        "description": "Renault Clio 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.050 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "CarPlay",
-            "Şerit takip"
+            "Ekonomik kullanım",
+            "Konforlu sürüş"
         ]
     },
     {
@@ -486,13 +539,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.000",
-        "deposit": "4.000",
+        "price": "1.050",
+        "deposit": "1.050",
         "image": "assets/img/cars/hyundai-i20.webp",
-        "description": "Hyundai i20 kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
+        "description": "Hyundai i20 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.050 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Geri görüş kamerası",
-            "Bluetooth"
+            "Ekonomik kullanım",
+            "Konforlu sürüş"
         ]
     },
     {
@@ -503,13 +556,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Hibrit",
         "seats": 5,
-        "price": "4.000",
-        "deposit": "4.000",
+        "price": "1.050",
+        "deposit": "1.050",
         "image": "assets/img/cars/toyota-yaris.webp",
-        "description": "Toyota Yaris kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
+        "description": "Toyota Yaris 2024 model otomatik hibrit kiralık araç. Günlük kiralama fiyatı 1.050 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Adaptif hız sabitleyici",
-            "Kör nokta uyarısı"
+            "Ekonomik kullanım",
+            "Konforlu sürüş"
         ]
     },
     {
@@ -520,13 +573,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.000",
-        "deposit": "4.000",
+        "price": "1.050",
+        "deposit": "1.050",
         "image": "assets/img/cars/ford-fiesta.webp",
-        "description": "Ford Fiesta kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
+        "description": "Ford Fiesta 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.050 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Park sensörü",
-            "Dokunmatik ekran"
+            "Ekonomik kullanım",
+            "Konforlu sürüş"
         ]
     },
     {
@@ -537,13 +590,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.000",
-        "deposit": "4.000",
+        "price": "1.150",
+        "deposit": "1.150",
         "image": "assets/img/cars/skoda-fabia.webp",
-        "description": "Skoda Fabia kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
+        "description": "Skoda Fabia 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.150 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "LED far",
-            "Hız sabitleyici"
+            "Ekonomik kullanım",
+            "Konforlu sürüş"
         ]
     },
     {
@@ -554,13 +607,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.000",
-        "deposit": "4.000",
+        "price": "1.200",
+        "deposit": "1.200",
         "image": "assets/img/cars/vw-polo.webp",
-        "description": "VW Polo kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
+        "description": "VW Polo 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.200 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Dijital klima",
-            "Apple CarPlay"
+            "Ekonomik kullanım",
+            "Konforlu sürüş"
         ]
     },
     {
@@ -571,13 +624,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.000",
-        "deposit": "4.000",
+        "price": "1.150",
+        "deposit": "1.150",
         "image": "assets/img/cars/renault-taliant.webp",
-        "description": "Renault Taliant kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
+        "description": "Renault Taliant 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.150 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Yakıt ekonomisi",
-            "Geniş iç hacim"
+            "Ekonomik kullanım",
+            "Konforlu sürüş"
         ]
     },
     {
@@ -588,13 +641,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "4.000",
-        "deposit": "4.000",
+        "price": "1.150",
+        "deposit": "1.150",
         "image": "assets/img/cars/Fiat-egea.webp",
-        "description": "Fiat Egea kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
+        "description": "Fiat Egea 2024 model otomatik dizel kiralık araç. Günlük kiralama fiyatı 1.150 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Dokunmatik ekran",
-            "USB bağlantı"
+            "Ekonomik kullanım",
+            "Konforlu sürüş"
         ]
     },
     {
@@ -605,13 +658,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.000",
-        "deposit": "4.000",
+        "price": "1.150",
+        "deposit": "1.150",
         "image": "assets/img/cars/honda-city.webp",
-        "description": "Honda City kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
+        "description": "Honda City 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.150 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Şerit destek",
-            "Ekonomik sürüş modu"
+            "Ekonomik kullanım",
+            "Konforlu sürüş"
         ]
     },
     {
@@ -622,13 +675,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.000",
-        "deposit": "4.000",
+        "price": "1.200",
+        "deposit": "1.200",
         "image": "assets/img/cars/hyundai-accent.webp",
-        "description": "Hyundai Accent kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
+        "description": "Hyundai Accent 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.200 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "ABS",
-            "Park sensörü"
+            "Ekonomik kullanım",
+            "Konforlu sürüş"
         ]
     },
     {
@@ -639,13 +692,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.000",
-        "deposit": "4.000",
+        "price": "1.100",
+        "deposit": "1.100",
         "image": "assets/img/cars/fiat-500l.webp",
-        "description": "Fiat 500L kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
+        "description": "Fiat 500L 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.100 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Panoramik cam tavan",
-            "Yüksek oturma pozisyonu"
+            "Geniş iç hacim",
+            "Konfor paketi"
         ]
     },
     {
@@ -656,13 +709,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.300",
+        "deposit": "1.300",
         "image": "assets/img/cars/ford-focus.webp",
-        "description": "Ford Focus kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "Ford Focus 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.300 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Şerit takip",
-            "Geri görüş kamerası"
+            "Geniş iç hacim",
+            "Konfor paketi"
         ]
     },
     {
@@ -673,13 +726,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.000",
-        "deposit": "4.000",
+        "price": "1.200",
+        "deposit": "1.200",
         "image": "assets/img/cars/renault-megane-hactback.webp",
-        "description": "Renault Megane Hatchback kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
+        "description": "Renault Megane Hatchback 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.200 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Dijital gösterge",
-            "Ambiyans aydınlatma"
+            "Geniş iç hacim",
+            "Konfor paketi"
         ]
     },
     {
@@ -690,13 +743,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.550",
+        "deposit": "1.550",
         "image": "assets/img/cars/vw-Golf.webp",
-        "description": "VW Golf kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "VW Golf 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.550 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Adaptive Cruise Control",
-            "Dijital kokpit"
+            "Geniş iç hacim",
+            "Konfor paketi"
         ]
     },
     {
@@ -707,13 +760,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.500",
+        "deposit": "1.500",
         "image": "assets/img/cars/honda-civic.webp",
-        "description": "Honda Civic kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "Honda Civic 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.500 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Sunroof",
-            "Kablosuz şarj"
+            "Geniş iç hacim",
+            "Konfor paketi"
         ]
     },
     {
@@ -724,13 +777,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Hibrit",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.500",
+        "deposit": "1.500",
         "image": "assets/img/cars/toyota-corolla-hybrid.webp",
-        "description": "Toyota Corolla Hybrid kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "Toyota Corolla Hybrid 2024 model otomatik hibrit kiralık araç. Günlük kiralama fiyatı 1.500 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Hibrit sürüş",
-            "Adaptif cruise"
+            "Geniş iç hacim",
+            "Konfor paketi"
         ]
     },
     {
@@ -741,13 +794,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.000",
-        "deposit": "4.000",
+        "price": "1.200",
+        "deposit": "1.200",
         "image": "assets/img/cars/Renault-megane.webp",
-        "description": "Renault Megane Sedan kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
+        "description": "Renault Megane Sedan 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.200 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Geniş bagaj",
-            "Dijital klima"
+            "Geniş iç hacim",
+            "Konfor paketi"
         ]
     },
     {
@@ -758,13 +811,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.300",
+        "deposit": "1.300",
         "image": "assets/img/cars/hyundai-elantra.webp",
-        "description": "Hyundai Elantra kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "Hyundai Elantra 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.300 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Anahtarsız giriş",
-            "Kör nokta uyarısı"
+            "Geniş iç hacim",
+            "Konfor paketi"
         ]
     },
     {
@@ -775,13 +828,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.950",
+        "deposit": "1.950",
         "image": "assets/img/cars/bmw-320d.webp",
-        "description": "BMW 320d kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "BMW 320d 2024 model otomatik dizel kiralık araç. Günlük kiralama fiyatı 1.950 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Deri koltuk",
-            "Navigasyon"
+            "Geniş iç hacim",
+            "Konfor paketi"
         ]
     },
     {
@@ -792,13 +845,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.800",
+        "deposit": "1.800",
         "image": "assets/img/cars/audi-a3.webp",
-        "description": "Audi A3 kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "Audi A3 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.800 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Virtual cockpit",
-            "LED far"
+            "Geniş iç hacim",
+            "Konfor paketi"
         ]
     },
     {
@@ -809,13 +862,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.500",
+        "deposit": "1.500",
         "image": "assets/img/cars/ford-mondeo.webp",
-        "description": "Ford Mondeo kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "Ford Mondeo 2024 model otomatik dizel kiralık araç. Günlük kiralama fiyatı 1.500 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Adaptif far",
-            "Çift bölgeli klima"
+            "Geniş iç hacim",
+            "Konfor paketi"
         ]
     },
     {
@@ -826,13 +879,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.700",
+        "deposit": "1.700",
         "image": "assets/img/cars/Vw-Passat.webp",
-        "description": "VW Passat kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "VW Passat 2024 model otomatik dizel kiralık araç. Günlük kiralama fiyatı 1.700 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Masaj koltuğu",
-            "Kablosuz CarPlay"
+            "Geniş iç hacim",
+            "Konfor paketi"
         ]
     },
     {
@@ -843,13 +896,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.700",
+        "deposit": "1.700",
         "image": "assets/img/cars/skoda-superb.webp",
-        "description": "Skoda Superb kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "Skoda Superb 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.700 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Geniş diz mesafesi",
-            "Elektrikli bagaj"
+            "Geniş iç hacim",
+            "Konfor paketi"
         ]
     },
     {
@@ -860,13 +913,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "5.000",
-        "deposit": "5.000",
+        "price": "2.700",
+        "deposit": "2.700",
         "image": "assets/img/cars/mercedes-cla200.webp",
-        "description": "Mercedes CLA 200 kiralık araç. Günlük kiralama fiyatı 5.000 TL’den başlar. Depozito: 5.000 TL.",
+        "description": "Mercedes CLA 200 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 2.700 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "MBUX ekran",
-            "Ambiyans aydınlatma"
+            "Premium donanım",
+            "Üst seviye konfor"
         ]
     },
     {
@@ -877,13 +930,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "5.000",
-        "deposit": "5.000",
+        "price": "3.000",
+        "deposit": "3.000",
         "image": "assets/img/cars/audi-a6.webp",
-        "description": "Audi A6 kiralık araç. Günlük kiralama fiyatı 5.000 TL’den başlar. Depozito: 5.000 TL.",
+        "description": "Audi A6 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 3.000 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "4 bölgeli klima",
-            "Navigasyon"
+            "Premium donanım",
+            "Üst seviye konfor"
         ]
     },
     {
@@ -894,13 +947,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "5.000",
-        "deposit": "5.000",
+        "price": "2.800",
+        "deposit": "2.800",
         "image": "assets/img/cars/bmw-420i.webp",
-        "description": "BMW 420i Coupe kiralık araç. Günlük kiralama fiyatı 5.000 TL’den başlar. Depozito: 5.000 TL.",
+        "description": "BMW 420i Coupe 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 2.800 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Harman Kardon",
-            "Elektrikli koltuk"
+            "Premium donanım",
+            "Üst seviye konfor"
         ]
     },
     {
@@ -911,13 +964,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "5.000",
-        "deposit": "5.000",
+        "price": "2.800",
+        "deposit": "2.800",
         "image": "assets/img/cars/bmw-520i.webp",
-        "description": "BMW 520i kiralık araç. Günlük kiralama fiyatı 5.000 TL’den başlar. Depozito: 5.000 TL.",
+        "description": "BMW 520i 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 2.800 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Konfor koltuk",
-            "Şerit ortalama"
+            "Premium donanım",
+            "Üst seviye konfor"
         ]
     },
     {
@@ -928,13 +981,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "5.000",
-        "deposit": "5.000",
+        "price": "3.200",
+        "deposit": "3.200",
         "image": "assets/img/cars/mercedes-e200.webp",
-        "description": "Mercedes E200 kiralık araç. Günlük kiralama fiyatı 5.000 TL’den başlar. Depozito: 5.000 TL.",
+        "description": "Mercedes E200 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 3.200 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Burmester ses sistemi",
-            "360 kamera"
+            "Premium donanım",
+            "Üst seviye konfor"
         ]
     },
     {
@@ -945,13 +998,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Elektrik",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.800",
+        "deposit": "1.800",
         "image": "assets/img/cars/byd-seal.webp",
-        "description": "BYD Seal kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "BYD Seal 2024 model otomatik elektrik kiralık araç. Günlük kiralama fiyatı 1.800 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Elektrikli performans",
-            "Isıtmalı koltuk"
+            "Premium donanım",
+            "Üst seviye konfor"
         ]
     },
     {
@@ -962,13 +1015,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Elektrik",
         "seats": 5,
-        "price": "5.000",
-        "deposit": "5.000",
+        "price": "2.300",
+        "deposit": "2.300",
         "image": "assets/img/cars/Tesla.webp",
-        "description": "Tesla Model kiralık araç. Günlük kiralama fiyatı 5.000 TL’den başlar. Depozito: 5.000 TL.",
+        "description": "Tesla Model 2024 model otomatik elektrik kiralık araç. Günlük kiralama fiyatı 2.300 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Otopilot",
-            "Cam tavan"
+            "Premium donanım",
+            "Üst seviye konfor"
         ]
     },
     {
@@ -979,13 +1032,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Elektrik",
         "seats": 5,
-        "price": "7.000",
-        "deposit": "7.000",
+        "price": "6.700",
+        "deposit": "6.700",
         "image": "assets/img/cars/porche-taycan.webp",
-        "description": "Porsche Taycan kiralık araç. Günlük kiralama fiyatı 7.000 TL’den başlar. Depozito: 7.000 TL.",
+        "description": "Porsche Taycan 2024 model otomatik elektrik kiralık araç. Günlük kiralama fiyatı 6.700 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Launch control",
-            "Premium ses sistemi"
+            "Premium donanım",
+            "Üst seviye konfor"
         ]
     },
     {
@@ -996,13 +1049,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.300",
+        "deposit": "1.300",
         "image": "assets/img/cars/ford-puma.webp",
-        "description": "Ford Puma kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "Ford Puma 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.300 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Büyük bagaj",
-            "Şerit takip"
+            "Geniş iç hacim",
+            "Konfor paketi"
         ]
     },
     {
@@ -1013,13 +1066,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.800",
+        "deposit": "1.800",
         "image": "assets/img/cars/audi-q2.webp",
-        "description": "Audi Q2 kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "Audi Q2 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.800 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Yüksek sürüş pozisyonu",
-            "LED far"
+            "Geniş iç hacim",
+            "Konfor paketi"
         ]
     },
     {
@@ -1030,13 +1083,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.550",
+        "deposit": "1.550",
         "image": "assets/img/cars/chery-omoda5.webp",
-        "description": "Chery Omoda 5 kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "Chery Omoda 5 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.550 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "360 kamera",
-            "Kablosuz şarj"
+            "Geniş iç hacim",
+            "Konfor paketi"
         ]
     },
     {
@@ -1047,13 +1100,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.600",
+        "deposit": "1.600",
         "image": "assets/img/cars/hyundai-tucson.webp",
-        "description": "Hyundai Tucson kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "Hyundai Tucson 2024 model otomatik dizel kiralık araç. Günlük kiralama fiyatı 1.600 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Isıtmalı koltuk",
-            "Adaptif cruise"
+            "Geniş iç hacim",
+            "Konfor paketi"
         ]
     },
     {
@@ -1064,13 +1117,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.700",
+        "deposit": "1.700",
         "image": "assets/img/cars/honda-crv.webp",
-        "description": "Honda CR-V kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "Honda CR-V 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.700 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Elektrikli bagaj",
-            "Sunroof"
+            "Geniş iç hacim",
+            "Konfor paketi"
         ]
     },
     {
@@ -1081,13 +1134,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.500",
+        "deposit": "1.500",
         "image": "assets/img/cars/jaecoo-j7.webp",
-        "description": "Jaecoo J7 kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "Jaecoo J7 2024 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.500 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Off-road modu",
-            "Panoramik tavan"
+            "Premium donanım",
+            "Üst seviye konfor"
         ]
     },
     {
@@ -1098,13 +1151,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.600",
+        "deposit": "1.600",
         "image": "assets/img/cars/Chery-tiggopro8.webp",
-        "description": "Chery Tiggo Pro 8 kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "Chery Tiggo Pro 8 2025 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.600 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "7 koltuk",
-            "360 kamera"
+            "Premium donanım",
+            "Üst seviye konfor"
         ]
     },
     {
@@ -1115,13 +1168,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "5.000",
-        "deposit": "5.000",
+        "price": "2.500",
+        "deposit": "2.500",
         "image": "assets/img/cars/audi-q5.webp",
-        "description": "Audi Q5 kiralık araç. Günlük kiralama fiyatı 5.000 TL’den başlar. Depozito: 5.000 TL.",
+        "description": "Audi Q5 2025 model otomatik dizel kiralık araç. Günlük kiralama fiyatı 2.500 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Quattro",
-            "Sanal kokpit"
+            "Premium donanım",
+            "Üst seviye konfor"
         ]
     },
     {
@@ -1132,13 +1185,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "5.000",
-        "deposit": "5.000",
+        "price": "2.500",
+        "deposit": "2.500",
         "image": "assets/img/cars/bmw-x5.webp",
-        "description": "BMW X5 kiralık araç. Günlük kiralama fiyatı 5.000 TL’den başlar. Depozito: 5.000 TL.",
+        "description": "BMW X5 2025 model otomatik dizel kiralık araç. Günlük kiralama fiyatı 2.500 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Panoramik cam tavan",
-            "Hafızalı koltuk"
+            "Premium donanım",
+            "Üst seviye konfor"
         ]
     },
     {
@@ -1149,13 +1202,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "6.000",
-        "deposit": "6.000",
+        "price": "4.700",
+        "deposit": "4.700",
         "image": "assets/img/cars/range-rover-velar.webp",
-        "description": "Range Rover Velar kiralık araç. Günlük kiralama fiyatı 6.000 TL’den başlar. Depozito: 6.000 TL.",
+        "description": "Range Rover Velar 2025 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 4.700 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Meridian ses sistemi",
-            "Elektrikli bagaj"
+            "Premium donanım",
+            "Üst seviye konfor"
         ]
     },
     {
@@ -1166,13 +1219,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "6.000",
-        "deposit": "6.000",
+        "price": "4.700",
+        "deposit": "4.700",
         "image": "assets/img/cars/range-rover-sport.webp",
-        "description": "Range Rover Sport kiralık araç. Günlük kiralama fiyatı 6.000 TL’den başlar. Depozito: 6.000 TL.",
+        "description": "Range Rover Sport 2025 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 4.700 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Hava süspansiyon",
-            "Off-road paketi"
+            "Premium donanım",
+            "Üst seviye konfor"
         ]
     },
     {
@@ -1183,13 +1236,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Elektrik",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.500",
+        "deposit": "1.500",
         "image": "assets/img/cars/megane-tech.webp",
-        "description": "Megane E-Tech kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "Megane E-Tech 2025 model otomatik elektrik kiralık araç. Günlük kiralama fiyatı 1.500 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Tam elektrikli",
-            "Dijital kokpit"
+            "Premium donanım",
+            "Üst seviye konfor"
         ]
     },
     {
@@ -1200,13 +1253,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "4.000",
-        "deposit": "4.000",
+        "price": "1.200",
+        "deposit": "1.200",
         "image": "assets/img/cars/ford-courrier.webp",
-        "description": "Ford Courier kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
+        "description": "Ford Courier 2025 model otomatik dizel kiralık araç. Günlük kiralama fiyatı 1.200 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Kayar kapı",
-            "Geniş yükleme alanı"
+            "Ekonomik kullanım",
+            "Konforlu sürüş"
         ]
     },
     {
@@ -1217,13 +1270,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "4.000",
-        "deposit": "4.000",
+        "price": "1.200",
+        "deposit": "1.200",
         "image": "assets/img/cars/fiat-doblo.webp",
-        "description": "Fiat Doblo kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
+        "description": "Fiat Doblo 2025 model otomatik dizel kiralık araç. Günlük kiralama fiyatı 1.200 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Çift sürgülü kapı",
-            "Park sensörü"
+            "Ekonomik kullanım",
+            "Konforlu sürüş"
         ]
     },
     {
@@ -1234,13 +1287,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "4.000",
-        "deposit": "4.000",
+        "price": "1.150",
+        "deposit": "1.150",
         "image": "assets/img/cars/renault-express.webp",
-        "description": "Renault Express kiralık araç. Günlük kiralama fiyatı 4.000 TL’den başlar. Depozito: 4.000 TL.",
+        "description": "Renault Express 2025 model otomatik dizel kiralık araç. Günlük kiralama fiyatı 1.150 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Yük sabitleme kancası",
-            "Bluetooth"
+            "Ekonomik kullanım",
+            "Konforlu sürüş"
         ]
     },
     {
@@ -1251,13 +1304,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.550",
+        "deposit": "1.550",
         "image": "assets/img/cars/vw-caddy.webp",
-        "description": "VW Caddy kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "VW Caddy 2025 model otomatik dizel kiralık araç. Günlük kiralama fiyatı 1.550 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Arka kamera",
-            "Uzun aks aralığı"
+            "Geniş iç hacim",
+            "Konfor paketi"
         ]
     },
     {
@@ -1268,13 +1321,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.800",
+        "deposit": "1.800",
         "image": "assets/img/cars/vw-Passat-Stationwagon.webp",
-        "description": "VW Passat Variant kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "VW Passat Variant 2025 model otomatik dizel kiralık araç. Günlük kiralama fiyatı 1.800 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Dev bagaj hacmi",
-            "Adaptif cruise"
+            "Geniş iç hacim",
+            "Konfor paketi"
         ]
     },
     {
@@ -1285,13 +1338,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.700",
+        "deposit": "1.700",
         "image": "assets/img/cars/ford-custom.webp",
-        "description": "Ford Custom kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "Ford Custom 2025 model otomatik dizel kiralık araç. Günlük kiralama fiyatı 1.700 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "8+1 oturma",
-            "Çift klima"
+            "Geniş iç hacim",
+            "Konfor paketi"
         ]
     },
     {
@@ -1302,13 +1355,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "5.000",
-        "deposit": "5.000",
+        "price": "2.500",
+        "deposit": "2.500",
         "image": "assets/img/cars/vito-cclass.webp",
-        "description": "Mercedes Vito kiralık araç. Günlük kiralama fiyatı 5.000 TL’den başlar. Depozito: 5.000 TL.",
+        "description": "Mercedes Vito 2025 model otomatik dizel kiralık araç. Günlük kiralama fiyatı 2.500 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "VIP dönüşüm uygunluğu",
-            "Arka klima"
+            "Premium donanım",
+            "Üst seviye konfor"
         ]
     },
     {
@@ -1319,13 +1372,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Dizel",
         "seats": 5,
-        "price": "5.000",
-        "deposit": "5.000",
+        "price": "2.300",
+        "deposit": "2.300",
         "image": "assets/img/cars/vw-caravella.webp",
-        "description": "VW Caravelle kiralık araç. Günlük kiralama fiyatı 5.000 TL’den başlar. Depozito: 5.000 TL.",
+        "description": "VW Caravelle 2025 model otomatik dizel kiralık araç. Günlük kiralama fiyatı 2.300 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "8+1 konfor paket",
-            "Sunroof"
+            "Premium donanım",
+            "Üst seviye konfor"
         ]
     },
     {
@@ -1336,13 +1389,13 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
         "transmission": "Otomatik",
         "fuel": "Benzin",
         "seats": 5,
-        "price": "4.500",
-        "deposit": "4.500",
+        "price": "1.500",
+        "deposit": "1.500",
         "image": "assets/img/cars/vw-trock.webp",
-        "description": "VW T-Roc kiralık araç. Günlük kiralama fiyatı 4.500 TL’den başlar. Depozito: 4.500 TL.",
+        "description": "VW T-Roc 2025 model otomatik benzin kiralık araç. Günlük kiralama fiyatı 1.500 TL’den başlar. Türkiye geneli araç kiralama hizmeti için hemen iletişime geçin.",
         "features": [
-            "Dijital kokpit",
-            "Apple CarPlay"
+            "Geniş iç hacim",
+            "Konfor paketi"
         ]
     }
 ];
@@ -1434,20 +1487,20 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
                         </div>
                         
                         <button class="w-full bg-primary text-white py-3 rounded-2xl font-semibold hover:bg-orange-700 transition mb-3 reservation-btn" data-vehicle-id="${vehicle.id}">
-                            Rezervasyon Oluştur
+                            ${buttonText("cardReservation", "Rezervasyon Oluştur")}
                         </button>
                         
                         <div class="flex gap-3">
                             <button class="flex-1 text-white py-2 rounded-2xl font-semibold transition flex items-center justify-center whatsapp-btn" data-vehicle="${vehicle.name}">
-                                <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+                                <i class="fab fa-whatsapp mr-2"></i>${buttonText("cardWhatsApp", "WhatsApp")}
                             </button>
                             <button class="flex-1 bg-secondary text-white py-2 rounded-2xl font-semibold hover:bg-gray-800 transition flex items-center justify-center call-btn">
-                                <i class="fas fa-phone-alt mr-2"></i>Ara
+                                <i class="fas fa-phone-alt mr-2"></i>${buttonText("cardCall", "Ara")}
                             </button>
                         </div>
                         
                         <button class="w-full mt-4 text-primary font-semibold hover:text-orange-700 transition detail-btn" data-vehicle-id="${vehicle.id}">
-                            <i class="fas fa-info-circle mr-2"></i>Detayları Gör
+                            <i class="fas fa-info-circle mr-2"></i>${buttonText("cardDetail", "Detayları Gör")}
                         </button>
                     </div>
                 </div>
@@ -1529,10 +1582,10 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
                         
                         <div class="flex gap-4">
                             <button class="flex-1 bg-primary text-white py-3 rounded-2xl font-semibold hover:bg-orange-700 transition reservation-btn" data-vehicle-id="${vehicle.id}">
-                                Hemen Kirala
+                                ${buttonText("detailReservation", "Hemen Kirala")}
                             </button>
                             <button class="flex-1 text-white py-3 rounded-2xl font-semibold transition whatsapp-btn" data-vehicle="${vehicle.name}">
-                                <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+                                <i class="fab fa-whatsapp mr-2"></i>${buttonText("detailWhatsApp", "WhatsApp")}
                             </button>
                         </div>
                     </div>
@@ -1559,6 +1612,22 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
             const detailTitle = document.getElementById('detail-title');
             const detailContent = document.getElementById('detail-content');
 
+
+            document.querySelectorAll('[data-config-text]').forEach(el => {
+                const key = el.getAttribute('data-config-text');
+                if (siteConfig().buttons?.[key]) el.textContent = siteConfig().buttons[key];
+            });
+
+            document.addEventListener('click', function(event) {
+                const actionBtn = event.target.closest('[data-config-action]');
+                if (!actionBtn) return;
+                const action = actionBtn.getAttribute('data-config-action');
+                if (action === 'header-whatsapp') { event.preventDefault(); openWhatsApp(siteConfig().messages?.headerWhatsApp || 'Merhaba, bilgi almak istiyorum.'); }
+                if (action === 'hero-whatsapp') { event.preventDefault(); openWhatsApp(siteConfig().messages?.heroWhatsApp || 'Merhaba, araç kiralama hakkında bilgi almak istiyorum.'); }
+                if (action === 'call') { event.preventDefault(); startCall(); }
+                if (action === 'reservation') { event.preventDefault(); reservationModal.classList.add('active'); }
+            });
+
             // Event Delegation for Vehicle Cards
             document.addEventListener('click', function(event) {
                 // Reservation buttons
@@ -1581,15 +1650,14 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
                     event.preventDefault();
                     const btn = event.target.closest('.whatsapp-btn');
                     const vehicleName = btn.getAttribute('data-vehicle');
-                    const phoneNumber = (window.SITE_CONFIG?.whatsappNumber || "");
-                    const message = `Merhaba, ${vehicleName} aracı hakkında bilgi almak istiyorum.`;
-                    window.open(window.SITE_CONFIG?.whatsappUrl?.(message) || `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+                    const message = siteConfig().messages?.vehicleWhatsApp?.(vehicleName) || `Merhaba, ${vehicleName} aracı hakkında bilgi almak istiyorum.`;
+                    openWhatsApp(message);
                 }
                 
                 // Call buttons
                 else if (event.target.closest('.call-btn')) {
                     event.preventDefault();
-                    window.location.href = 'tel:+' + (window.SITE_CONFIG?.callNumber || '');
+                    startCall();
                 }
                 
                 // Detail buttons
@@ -1636,22 +1704,21 @@ window.SITE_CONFIG = window.SITE_CONFIG || {
                 const data = Object.fromEntries(formData);
                 
                 // Prepare WhatsApp message
-                const phoneNumber = (window.SITE_CONFIG?.whatsappNumber || "");
                 const message = `Yeni Rezervasyon Talebi:
-Araç: ${data[''] || 'Seçilmedi'}
-Tip: ${data[''] || 'Seçilmedi'}
-Alış: ${data[''] || 'Belirtilmedi'}
-Dönüş: ${data[''] || 'Belirtilmedi'}
-Teslim Yeri: ${data[''] || 'Belirtilmedi'}
-Ad Soyad: ${data[''] || 'Belirtilmedi'} ${data[''] || ''}
-Telefon: ${data[''] || 'Belirtilmedi'}
-E-posta: ${data[''] || 'Belirtilmedi'}`;
+Araç: ${data.vehicle || 'Seçilmedi'}
+Tip: ${data.rental_type || 'Seçilmedi'}
+Alış: ${data.pickup_date || 'Belirtilmedi'}
+Dönüş: ${data.return_date || 'Belirtilmedi'}
+Teslim Yeri: ${data.delivery_location || 'Belirtilmedi'}
+Ad Soyad: ${data.first_name || 'Belirtilmedi'} ${data.last_name || ''}
+Telefon: ${data.phone || 'Belirtilmedi'}
+E-posta: ${data.email || 'Belirtilmedi'}`;
                 
-                window.open(window.SITE_CONFIG?.whatsappUrl?.(message) || `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+                openWhatsApp(message);
                 reservationModal.classList.remove('active');
                 
                 // Show success message
-                alert('Rezervasyon talebiniz WhatsApp üzerinden gönderildi. En kısa sürede dönüş yapacağız.');
+                alert(siteConfig().messages?.reservationSuccess || 'Rezervasyon talebiniz WhatsApp üzerinden gönderildi. En kısa sürede dönüş yapacağız.');
             });
 
             // Smooth scrolling for navigation links
