@@ -1,8 +1,8 @@
 window.SITE_CONFIG = {
   siteName: "GARENT FİLO",
   siteTitle: "GARENT FİLO | Türkiye Geneli Araç Kiralama",
-  whatsappNumber: "905545367956",
-  callNumber: "905513722656",
+  whatsappNumber: "05545367956",
+  callNumber: "05513722656",
   email: "info@garentfilo.com",
   city: "Türkiye Geneli",
 
